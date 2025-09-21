@@ -11,7 +11,7 @@ find_package(spdlog REQUIRED)
 find_package(glad REQUIRED)
 find_package(opengl REQUIRED)
 find_package(glm REQUIRED)
-find_package(glfw3 REQUIRED)
+find_package(SDL3 REQUIRED)
 
 
 add_library(${PROJECT_NAME} ${SOURCES})
@@ -21,10 +21,12 @@ target_include_directories(${PROJECT_NAME} PUBLIC "${SRC_DIR}")
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
 	spdlog::spdlog
+	SDL3::SDL3
 	glad::glad
 	OpenGL::GL
 	glm::glm
-	glfw
 )
 
+
 target_compile_definitions(${PROJECT_NAME} PRIVATE GLFW_INCLUDE_NONE _CRT_SECURE_NO_WARNINGS )
+

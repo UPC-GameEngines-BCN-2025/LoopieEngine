@@ -4,7 +4,7 @@
   "builtin-baseline": "9824d05f8d9548720ba3331f4baba3e2d6c1693b",
   "dependencies": [
     "glad",
-    "glfw3",
+    "sdl3",
     "spdlog",
     "opengl",
     "glm"
