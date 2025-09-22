@@ -12,6 +12,7 @@ find_package(glad REQUIRED)
 find_package(opengl REQUIRED)
 find_package(glm REQUIRED)
 find_package(SDL3 REQUIRED)
+find_package(imgui REQUIRED)
 
 
 add_library(${PROJECT_NAME} ${SOURCES})
@@ -25,8 +26,10 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
 	glad::glad
 	OpenGL::GL
 	glm::glm
+	imgui::imgui
 )
 
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE GLFW_INCLUDE_NONE _CRT_SECURE_NO_WARNINGS )
+
 
