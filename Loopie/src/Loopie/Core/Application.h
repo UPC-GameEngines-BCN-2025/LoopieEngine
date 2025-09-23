@@ -22,7 +22,7 @@ namespace Loopie {
 	private:
 		static Application* s_Instance;
 
-		std::vector<Module*> m_Modules;
+		std::vector<Module*> m_modules;
 		bool m_running = true;
 	};
 

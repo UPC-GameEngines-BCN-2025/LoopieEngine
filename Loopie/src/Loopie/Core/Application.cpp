@@ -30,15 +30,15 @@ namespace Loopie {
 
 	void Application::AddModule(Module* module)
 	{
-		m_Modules.emplace_back(module);
+		m_modules.emplace_back(module);
 		module->OnLoad();
 		
 	}
 
 	void Application::RemoveModule(Module* module)
 	{
-		auto it = std::find(m_Modules.begin(), m_Modules.end(), module);
-		if (it == m_Modules.end())
+		auto it = std::find(m_modules.begin(), m_modules.end(), module);
+		if (it == m_modules.end())
 		{
 			if (module)
 				Log::Warn("Module to remove not found -> {0}", module->GetName());
@@ -47,7 +47,7 @@ namespace Loopie {
 			return;		
 		}	
 		module->OnUnload();
-		m_Modules.erase(it);
+		m_modules.erase(it);
 	}
 
 	Application& Application::GetInstance()
@@ -59,7 +59,7 @@ namespace Loopie {
 	{
 		while (m_running)
 		{
-			for (Module* module : m_Modules) {
+			for (Module* module : m_modules) {
 				if (module->IsActive()) {
 					module->OnUpdate();
 				}
