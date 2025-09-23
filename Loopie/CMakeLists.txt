@@ -12,6 +12,7 @@ find_package(glad REQUIRED)
 find_package(opengl REQUIRED)
 find_package(glm REQUIRED)
 find_package(SDL3 REQUIRED)
+find_package(nfd REQUIRED)
 find_package(imgui REQUIRED)
 
 
@@ -22,10 +23,11 @@ target_include_directories(${PROJECT_NAME} PUBLIC "${SRC_DIR}")
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
 	spdlog::spdlog
-	SDL3::SDL3
 	glad::glad
 	OpenGL::GL
 	glm::glm
+	SDL3::SDL3
+	nfd::nfd
 	imgui::imgui
 )
 
