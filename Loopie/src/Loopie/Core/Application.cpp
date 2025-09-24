@@ -1,4 +1,5 @@
 #include "Application.h"
+#include <imgui.h>
 #include "SDL3/SDL_init.h" // TEMP INCLUDE FOR POLLING EVENTS
 #include "SDL3/SDL.h"// TEMP INCLUDE FOR POLLING EVENTS
 
@@ -12,7 +13,6 @@ namespace Loopie {
 	Application::Application()
 	{
 		Log::Init();
-
 		Log::Info("Starting Application...");
 
 		ASSERT(s_Instance != nullptr, "Application is already created");
@@ -24,6 +24,7 @@ namespace Loopie {
 
 		m_window = new Window();
 		Log::Info("Window created successfully.");
+		m_imguiManager.Init();
 
 	}
 
@@ -132,12 +133,14 @@ namespace Loopie {
 				}
 			}
 			// TEMP TESTING POLLING OVER!
-
+			m_imguiManager.StartFrame();
 			for (Module* module : m_modules) {
 				if (module->IsActive()) {
 					module->OnUpdate();
 				}
 			}
+			ImGui::ShowDemoWindow();
+			m_imguiManager.EndFrame();
 			m_window->Update();
 			
 		}
