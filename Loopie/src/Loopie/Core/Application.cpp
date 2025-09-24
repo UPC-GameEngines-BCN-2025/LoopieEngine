@@ -21,11 +21,8 @@ namespace Loopie {
 		Log::Info("Application Started");
 
 		// Window Creation
-		Log::Info("Starting Window...");
 
 		m_window = new Window();
-		ASSERT(s_Instance == nullptr, "Window is nullptr.");
-
 		Log::Info("Window created successfully.");
 
 	}
@@ -34,8 +31,16 @@ namespace Loopie {
 	{
 		Log::Info("Closing Application...");
 
+		for (Module* module : m_modules)
+		{
+			module->OnUnload();
+			delete(module);
+		}
+		m_modules.clear();
+
 		//// Cleaning
-		delete(m_window); m_window = nullptr;
+		delete(m_window); 
+		m_window = nullptr;
 
 		Log::Info("Application Closed");
 	}
@@ -90,14 +95,13 @@ namespace Loopie {
 					SDL_Keycode key = e.key.key;
 					if (key == SDLK_F1)
 					{
-						Log::Info("Has focus: {0}, Size: {1}x{2}, Position: {3}x{4}, Is Fullscreen: {5}", m_window->HasFocus(), m_window->GetSize().first,
-							m_window->GetSize().second, m_window->GetPosition().first, m_window->GetPosition().second, m_window->IsFullscreen());
+							m_window->GetSize().second, m_window->GetPosition().first, m_window->GetPosition().second, m_window->IsFullscreen();
 					}
 					else if (key == SDLK_F2)
 					{
 						m_window->SetWindowFullscreen(!m_window->IsFullscreen());
 					}
-					else if (key == SDLK_F4)
+					else if (key == SDLK_F3)
 					{
 						m_window->SetResizable(true);
 					}
@@ -124,7 +128,6 @@ namespace Loopie {
 					else if (key == SDLK_ESCAPE)
 					{
 						m_running = false;
-						Log::Info("Closing the program.");
 					}
 				}
 			}
