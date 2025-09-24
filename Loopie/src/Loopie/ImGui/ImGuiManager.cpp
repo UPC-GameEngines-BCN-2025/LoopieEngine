@@ -25,24 +25,45 @@ namespace Loopie {
 		io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;
 		io.ConfigFlags |= ImGuiConfigFlags_NavEnableSetMousePos;
 		io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+		io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
 
 		Window* window = Application::GetInstance().GetWindow();
 		ImGui_ImplSDL3_InitForOpenGL(window->GetSDLWindow(), window->GetSDL_GL_Context());
 		ImGui_ImplOpenGL3_Init();
 	}
+
 	void ImGuiManager::GetEvents(const SDL_Event& event)
 	{
 		ImGui_ImplSDL3_ProcessEvent(&event);
 	}
+
 	void ImGuiManager::StartFrame()
 	{
 		ImGui_ImplOpenGL3_NewFrame();
 		ImGui_ImplSDL3_NewFrame();
 		ImGui::NewFrame();
 	}
+
 	void ImGuiManager::EndFrame()
 	{
+		Window* window = Application::GetInstance().GetWindow();
+		std::pair<int, int> size = window->GetSize();
+		ImGuiIO& io = ImGui::GetIO();
+		io.DisplaySize = ImVec2((float)size.first, (float)size.second);
+
 		ImGui::Render();
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
+		if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
+		{
+
+			SDL_Window* backup_window = window->GetSDLWindow();
+			SDL_GLContext backup_context = window->GetSDL_GL_Context();
+
+			ImGui::UpdatePlatformWindows();
+			ImGui::RenderPlatformWindowsDefault();
+
+			SDL_GL_MakeCurrent(backup_window, backup_context);
+		}
 	}
 }

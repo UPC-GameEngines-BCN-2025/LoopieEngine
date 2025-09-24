@@ -1,7 +1,7 @@
 #pragma once
 
 #include <SDL3/SDL_video.h>
-#include <utility> // Added for std::pair
+#include <utility> // Added for std::pair -> Remove when implemented glm vectors
 
 #define WINDOW_DEFAULT_WIDTH 800
 #define WINDOW_DEFAULT_HEIGHT 600
@@ -22,13 +22,13 @@ namespace Loopie {
 		// TODO? Set logic resolution? https://wiki.libsdl.org/SDL3/SDL_SetRenderLogicalPresentation
 		void SetWindowSize(int width, int height, bool savePreviousWindowsSize = false);
 		void SetWindowFullscreen(bool enable, const SDL_DisplayMode* mode = nullptr);
-		void SetResizable(bool enable);
-		void SetTitle(const char* title);
+		void SetResizable(bool enable);/// Maybe Do a getter also?
+		void SetTitle(const char* title);/// Maybe Do a getter also?
 		void SetPosition(int x, int y);
 		// missing borderless, vsync, multi-monitor?
 
 
-		void ClearWindow(); /// Testing
+		void ClearWindow(); /// Remove Later when Rendering Class implemented
 
 		SDL_Window* GetSDLWindow() const { return m_window; }
 		SDL_GLContext GetSDL_GL_Context() const { return m_glContext; }

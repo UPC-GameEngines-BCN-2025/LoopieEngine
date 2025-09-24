@@ -52,7 +52,7 @@ namespace Loopie {
 		return returnStatus;
 	}
 
-	std::pair<int, int> Window::GetSize() const
+	std::pair<int, int> Window::GetSize() const /// Change To vector when posible (glm)
 	{
 		int x;
 		int y;
@@ -62,7 +62,7 @@ namespace Loopie {
 		return { x, y };
 	}
 
-	std::pair<int, int> Window::GetPosition() const
+	std::pair<int, int> Window::GetPosition() const /// Change To vector when posible (glm)
 	{
 		int x;
 		int y;
@@ -131,7 +131,7 @@ namespace Loopie {
 		SDL_SetWindowTitle(m_window, title); // returns bool
 	}
 
-	void Window::SetPosition(int x, int y)
+	void Window::SetPosition(int x, int y) 
 	{
 		SDL_SetWindowPosition(m_window, x, y); // returns bool
 	}

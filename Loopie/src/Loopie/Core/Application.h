@@ -22,6 +22,9 @@ namespace Loopie {
 		Window* GetWindow() const;
 
 	private:
+		void ProcessEvents();
+
+	private:
 		static Application* s_Instance;
 
 		std::vector<Module*> m_modules;
