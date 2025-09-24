@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Loopie/Core/Module.h"
+#include "Loopie/Core/Window.h"
 
 #include <vector>
 #include <nfd.h>
@@ -18,11 +19,13 @@ namespace Loopie {
 		void Close();
 
 		static Application& GetInstance();
+		Window* GetWindow() const;
 
 	private:
 		static Application* s_Instance;
 
 		std::vector<Module*> m_modules;
+		Window* m_window = nullptr;
 		bool m_running = true;
 	};
 
