@@ -1,11 +1,10 @@
 #pragma once
 
 #include "Loopie/Core/Module.h"
-#include "Loopie/Core/ImGuiManager.h"
 #include "Loopie/Core/Window.h"
+#include "Loopie/ImGui/ImGuiManager.h"
 
 #include <vector>
-#include <nfd.h>
 
 namespace Loopie {
 	class Application {
@@ -26,8 +25,10 @@ namespace Loopie {
 		static Application* s_Instance;
 
 		std::vector<Module*> m_modules;
-		ImGuiManager m_imguiManager;
 		Window* m_window = nullptr;
+
+		ImGuiManager m_imguiManager;
+
 		bool m_running = true;
 	};
 

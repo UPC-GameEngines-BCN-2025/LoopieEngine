@@ -1,11 +1,14 @@
 #include "Application.h"
-#include <imgui.h>
-#include "SDL3/SDL_init.h" // TEMP INCLUDE FOR POLLING EVENTS
-#include "SDL3/SDL.h"// TEMP INCLUDE FOR POLLING EVENTS
 
 #include "Loopie/Core/Assert.h"
 #include "Loopie/Core/Log.h"
 
+#include <SDL3/SDL_init.h> // TEMP INCLUDE FOR POLLING EVENTS
+#include <SDL3/SDL.h>// TEMP INCLUDE FOR POLLING EVENTS
+#include <imgui.h>// TEMP INCLUDE FOR POLLING EVENTS
+
+
+#include "Loopie/Files/FileDialog.h"
 
 namespace Loopie {
 	Application* Application::s_Instance = nullptr;
@@ -21,9 +24,9 @@ namespace Loopie {
 		Log::Info("Application Started");
 
 		// Window Creation
-
 		m_window = new Window();
 		Log::Info("Window created successfully.");
+
 		m_imguiManager.Init();
 
 	}
@@ -82,12 +85,17 @@ namespace Loopie {
 	{
 		while (m_running)
 		{
-			// TEMP TESTING POLLING!
+
+			m_window->ClearWindow(); ///Test -> this should be moved to a RenderClass in the future
+
+			// TEMP TESTING POLLING! -> Requiered by ImGui
 			SDL_Event e;
 			while (SDL_PollEvent(&e))
 			{
+				m_imguiManager.GetEvents(e);
 				if (e.type == SDL_EVENT_QUIT)
 				{
+					Close();
 					break; // Exit the loop
 				}
 				else if (e.type == SDL_EVENT_KEY_DOWN)
@@ -128,21 +136,24 @@ namespace Loopie {
 					}
 					else if (key == SDLK_ESCAPE)
 					{
-						m_running = false;
+						Close();
 					}
 				}
 			}
 			// TEMP TESTING POLLING OVER!
+			
 			m_imguiManager.StartFrame();
+
 			for (Module* module : m_modules) {
 				if (module->IsActive()) {
 					module->OnUpdate();
 				}
 			}
+
 			ImGui::ShowDemoWindow();
 			m_imguiManager.EndFrame();
-			m_window->Update();
-			
+
+			m_window->Update();		
 		}
 	}
 

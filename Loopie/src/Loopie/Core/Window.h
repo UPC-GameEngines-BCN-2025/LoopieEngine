@@ -1,6 +1,6 @@
 #pragma once
 
-#include "SDL3/SDL_video.h"
+#include <SDL3/SDL_video.h>
 #include <utility> // Added for std::pair
 
 #define WINDOW_DEFAULT_WIDTH 800
@@ -26,6 +26,9 @@ namespace Loopie {
 		void SetTitle(const char* title);
 		void SetPosition(int x, int y);
 		// missing borderless, vsync, multi-monitor?
+
+
+		void ClearWindow(); /// Testing
 
 		SDL_Window* GetSDLWindow() const { return m_window; }
 		SDL_GLContext GetSDL_GL_Context() const { return m_glContext; }

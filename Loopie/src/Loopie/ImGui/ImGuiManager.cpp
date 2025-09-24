@@ -1,15 +1,13 @@
 #include "ImGuiManager.h"
-#include "imgui.h"
-#include "imgui_impl_sdl3.h"
-#include "imgui_impl_opengl3.h"
+
 #include "Loopie/Core/Application.h"
 #include "Loopie/Core/Window.h"
+
+#include <imgui.h>
+#include <imgui_impl_sdl3.h>
+#include <imgui_impl_opengl3.h>
+
 namespace Loopie {
-	ImGuiManager::ImGuiManager()
-	{
-
-	}
-
 	ImGuiManager::~ImGuiManager()
 	{
 		ImGui_ImplSDL3_Shutdown();
@@ -27,9 +25,14 @@ namespace Loopie {
 		io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;
 		io.ConfigFlags |= ImGuiConfigFlags_NavEnableSetMousePos;
 		io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+
 		Window* window = Application::GetInstance().GetWindow();
 		ImGui_ImplSDL3_InitForOpenGL(window->GetSDLWindow(), window->GetSDL_GL_Context());
 		ImGui_ImplOpenGL3_Init();
+	}
+	void ImGuiManager::GetEvents(const SDL_Event& event)
+	{
+		ImGui_ImplSDL3_ProcessEvent(&event);
 	}
 	void ImGuiManager::StartFrame()
 	{

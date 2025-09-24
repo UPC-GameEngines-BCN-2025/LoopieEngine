@@ -1,10 +1,10 @@
 #include "Window.h"
-#include "SDL3/SDL_init.h"
-#include "glad/glad.h"
 
 #include "Loopie/Core/Assert.h"
 #include "Loopie/Core/Log.h"
 
+#include <SDL3/SDL_init.h>
+#include <glad/glad.h>
 
 namespace Loopie {
 	Window::Window()
@@ -44,6 +44,7 @@ namespace Loopie {
 	// 24/09 Technically more of a swapbuffer rather than an update right now
 	bool Window::Update()
 	{
+
 		bool returnStatus = true;
 
 		SDL_GL_SwapWindow(m_window);
@@ -133,6 +134,12 @@ namespace Loopie {
 	void Window::SetPosition(int x, int y)
 	{
 		SDL_SetWindowPosition(m_window, x, y); // returns bool
+	}
+
+	void Window::ClearWindow()
+	{
+		glClearColor(0.1f, 0.2f, 0.3f, 1.0f);
+		glClear(GL_COLOR_BUFFER_BIT);
 	}
 
 }
