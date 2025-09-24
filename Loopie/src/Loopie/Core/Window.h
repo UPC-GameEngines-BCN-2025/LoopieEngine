@@ -6,8 +6,6 @@
 #define WINDOW_DEFAULT_WIDTH 800
 #define WINDOW_DEFAULT_HEIGHT 600
 
-struct SDL_Window;
-
 namespace Loopie {
 	class Window {
 	public:
@@ -29,7 +27,8 @@ namespace Loopie {
 		void SetPosition(int x, int y);
 		// missing borderless, vsync, multi-monitor?
 
-		// SDL_Window* GetSDLHandle() const { return m_Window; } // Necessary?
+		SDL_Window* GetSDLWindow() const { return m_window; }
+		SDL_GLContext GetSDL_GL_Context() const { return m_glContext; }
 
 	private:
 		SDL_Window* m_window = nullptr;
