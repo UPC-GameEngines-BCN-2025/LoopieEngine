@@ -2,6 +2,7 @@
 #include <SDL3/SDL_events.h>
 
 namespace Loopie {
+
 	class ImGuiManager {
 	public:
 		ImGuiManager() = default;
@@ -11,5 +12,8 @@ namespace Loopie {
 		void GetEvents(const SDL_Event& event);
 		void StartFrame();
 		void EndFrame();
+
+	private:
+		void CustomImGui();
 	};
 }

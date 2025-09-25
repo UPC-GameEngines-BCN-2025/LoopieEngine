@@ -5,6 +5,7 @@
 #include "Loopie/ImGui/ImGuiManager.h"
 
 #include <vector>
+#include "Loopie/Project/Project.h"
 
 namespace Loopie {
 	class Application {
@@ -24,6 +25,8 @@ namespace Loopie {
 	private:
 		void ProcessEvents();
 
+	public:
+		Project m_activeProject;
 	private:
 		static Application* s_Instance;
 
