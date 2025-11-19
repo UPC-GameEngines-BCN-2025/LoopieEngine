@@ -1,4 +1,5 @@
 ﻿cmake_minimum_required (VERSION 3.10)
+list(APPEND CMAKE_PREFIX_PATH "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg-overlays")
 project ("LoopieEngine" VERSION 0.1.0 LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 17)

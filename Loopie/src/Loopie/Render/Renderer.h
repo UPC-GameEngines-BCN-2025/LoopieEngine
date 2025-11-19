@@ -18,11 +18,13 @@ namespace Loopie {
 			std::shared_ptr<VertexArray> VAO;
 			unsigned int IndexCount;
 
-			std::shared_ptr<Material> Material;
-			const Transform* Transform;
+			std::shared_ptr<Material> material;
+			const Transform* transform;
 		};
-
-		static void Init(void* context);
+		
+		// static void Init(void* (*getProcAddress)(const char*));
+		using GLLoader = void* (*)(const char*);
+		static void Init(GLLoader getProcAddress);
 		static void Shutdown();
 
 		static void Clear();

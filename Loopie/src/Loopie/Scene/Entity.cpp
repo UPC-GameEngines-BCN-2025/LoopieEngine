@@ -1,8 +1,9 @@
 #include "Entity.h"
 
-#include "Loopie/Components/Component.h"
 #include "Loopie/Components/Transform.h"
 #include "Loopie/Core/Log.h"
+
+#include <algorithm>
 
 namespace Loopie {
 	Entity::Entity(const std::string& name) : m_name(name)

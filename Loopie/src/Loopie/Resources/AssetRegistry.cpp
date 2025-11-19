@@ -36,7 +36,7 @@ namespace Loopie {
 		for (auto& [key, metadata] : s_Assets) {
 			
 			if (metadata.IsOutdated) {
-				const std::string& pathString = s_UUIDToPath[metadata.UUID];
+				const std::string& pathString = s_UUIDToPath[metadata.uuid];
 				metadata.LastModified = MetadataRegistry::GetLastModifiedFromPath(pathString);
 				Log::Info("{0}", pathString);
 				/// DO REIMPORTS
@@ -114,7 +114,7 @@ namespace Loopie {
 		Metadata metadata = MetadataRegistry::GetMetadataAsset(pathStr);
 		Register(pathStr, metadata);
 
-		return s_Assets[metadata.UUID];
+		return s_Assets[metadata.uuid];
 	}
 
 	Metadata* AssetRegistry::GetMetadata(const UUID& uuid)
@@ -143,8 +143,8 @@ namespace Loopie {
 
 	void AssetRegistry::Register(const std::string& path, const Metadata& metadata)
 	{
-		s_Assets[metadata.UUID] = metadata;
-		s_PathToUUID[path] = metadata.UUID;
-		s_UUIDToPath[metadata.UUID] = path;
+		s_Assets[metadata.uuid] = metadata;
+		s_PathToUUID[path] = metadata.uuid;
+		s_UUIDToPath[metadata.uuid] = path;
 	}
 }

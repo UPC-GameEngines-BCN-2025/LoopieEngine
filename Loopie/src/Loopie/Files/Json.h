@@ -119,10 +119,10 @@ namespace Loopie {
         template <typename T>
         JsonResult<T> GetArrayElement(const std::string& keyPath, unsigned int index) {
             if (keyPath.empty())
-                return GetArrayElement(index);
+                return GetArrayElement<T>(index);
 
             JsonNode node = Child(keyPath);
-            if (node.IsArray()) return node.GetArrayElement(index);
+            if (node.IsArray()) return node.GetArrayElement<T>(index);
             
             JsonResult<T> result;
             result.Found = false;

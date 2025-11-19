@@ -1,6 +1,8 @@
 
 #include "ImGuiHelpers.h"
 
+#include <cstddef>
+
 namespace Loopie {
  
     std::string ImGuiHelpers::TruncateText(const std::string& text, float width)

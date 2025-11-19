@@ -8,6 +8,7 @@
 #include <iostream>
 #include <sstream>
 #include <filesystem> // Used for checking the extension
+#include <cstddef> // Used for size_t
 
 namespace Loopie {
 
@@ -105,8 +106,8 @@ namespace Loopie {
 		fs.close();
 
 		metadata.HasCache = true;
-		metadata.CachesPath.clear();
-		metadata.CachesPath.push_back(locationPath.string());
+		metadata.cachesPath.clear();
+		metadata.cachesPath.push_back(locationPath.string());
 		MetadataRegistry::SaveMetadata(filepath, metadata);
 
 	}

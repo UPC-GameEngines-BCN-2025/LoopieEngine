@@ -43,7 +43,7 @@ namespace Loopie {
 	{
 		char nameBuffer[256];
 		memset(nameBuffer, 0, sizeof(nameBuffer));
-		strncpy_s(nameBuffer, entity->GetName().c_str(), sizeof(nameBuffer) - 1);
+		strncpy(nameBuffer, entity->GetName().c_str(), sizeof(nameBuffer) - 1);
 
 		bool isActive = entity->GetIsActive();
 		if (ImGui::Checkbox("##", &isActive)) {

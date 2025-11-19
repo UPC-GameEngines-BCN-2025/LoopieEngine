@@ -2,10 +2,12 @@
 
 #include "Loopie/Core/UUID.h"
 #include "Loopie/Core/Identificable.h"
+#include "Loopie/Components/Component.h"
 
 #include <string>
 #include <vector>
 #include <memory>
+#include <cstddef>
 
 namespace Loopie {
 	class Component;

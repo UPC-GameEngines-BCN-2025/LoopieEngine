@@ -4,7 +4,14 @@
   "builtin-baseline": "9824d05f8d9548720ba3331f4baba3e2d6c1693b",
   "dependencies": [
     "glad",
-    "sdl3",
+    {
+	    "name": "sdl3",
+	    "default-features": false,
+	    "features": [
+	    "wayland",
+	    "x11"
+	    ]
+    },
     "spdlog",
     "opengl",
     "glm",

@@ -1,0 +1,111 @@
+Detecting compiler hash for triplet x64-linux...
+Compiler found: /usr/bin/c++
+The following packages are already installed:
+    assimp:x64-linux@6.0.2#1
+    devil[core,jasper,lcms,libjpeg,libpng,openexr,tiff]:x64-linux@1.8.0#13
+  * draco:x64-linux@1.5.7
+  * egl-registry:x64-linux@2024-01-25
+  * fmt:x64-linux@11.2.0
+    glad[core,loader]:x64-linux@0.1.36
+    glm:x64-linux@1.0.1#3
+  * imath:x64-linux@3.2.0
+  * jasper:x64-linux@4.2.8
+  * jhasse-poly2tri:x64-linux@2023-12-27#2
+  * kubazip:x64-linux@0.3.5
+  * lcms:x64-linux@2.17
+  * libdeflate[compression,core,decompression,gzip,zlib]:x64-linux@1.24
+  * libjpeg-turbo:x64-linux@3.1.1
+  * liblzma:x64-linux@5.8.1
+  * libpng:x64-linux@1.6.50
+    lz4:x64-linux@1.10.0
+  * minizip:x64-linux@1.3.1#1
+    nlohmann-json:x64-linux@3.12.0#1
+  * openexr:x64-linux@3.3.5
+    opengl:x64-linux@2022-12-04#3
+  * opengl-registry:x64-linux@2024-02-10#1
+  * polyclipping:x64-linux@6.4.2#13
+  * pugixml:x64-linux@1.15
+  * rapidjson:x64-linux@2025-02-26
+    spdlog:x64-linux@1.15.3
+  * stb:x64-linux@2024-07-29#1
+  * tiff[core,jpeg,lzma,zip]:x64-linux@4.7.0
+  * utfcpp:x64-linux@4.0.6
+  * vcpkg-cmake:x64-linux@2024-04-23
+  * vcpkg-cmake-config:x64-linux@2024-05-23
+  * vcpkg-cmake-get-vars:x64-linux@2025-05-29
+  * vcpkg-tool-meson:x64-linux@1.9.0
+  * zlib:x64-linux@1.3.1
+The following packages will be removed:
+    expat:x64-linux
+    gperf:x64-linux
+    libcap:x64-linux
+    libmount:x64-linux
+    libsystemd:x64-linux
+    libxcrypt:x64-linux
+    vcpkg-make:x64-linux
+    zstd:x64-linux
+The following packages will be rebuilt:
+  * dbus:x64-linux@1.16.2 -- /home/pols/Coding/LoopieEngine/build/../vcpkg-overlays/ports/dbus
+    imgui[core,docking-experimental,opengl3-binding,sdl3-binding]:x64-linux@1.91.9
+    imguizmo:x64-linux@2024-05-29#1
+    nativefiledialog-extended:x64-linux@1.2.1
+    sdl3[core,ibus,wayland,x11]:x64-linux@3.2.22
+Additional packages (*) will be modified to complete this operation.
+Restored 0 package(s) from /home/pols/.cache/vcpkg/archives in 21.8 us. Use --debug to see more details.
+Removing 1/18 nativefiledialog-extended:x64-linux
+Elapsed time to handle nativefiledialog-extended:x64-linux: 1.08 ms
+Removing 2/18 imguizmo:x64-linux
+Elapsed time to handle imguizmo:x64-linux: 1.47 ms
+Removing 3/18 imgui:x64-linux
+Elapsed time to handle imgui:x64-linux: 4.02 ms
+Removing 4/18 sdl3:x64-linux
+Elapsed time to handle sdl3:x64-linux: 9.84 ms
+Removing 5/18 dbus:x64-linux
+Elapsed time to handle dbus:x64-linux: 6.68 ms
+Removing 6/18 expat:x64-linux
+Elapsed time to handle expat:x64-linux: 1.13 ms
+Removing 7/18 libsystemd:x64-linux
+Elapsed time to handle libsystemd:x64-linux: 4.76 ms
+Removing 8/18 gperf:x64-linux
+Elapsed time to handle gperf:x64-linux: 779 us
+Removing 9/18 libcap:x64-linux
+Elapsed time to handle libcap:x64-linux: 1.36 ms
+Removing 10/18 libmount:x64-linux
+Elapsed time to handle libmount:x64-linux: 2.04 ms
+Removing 11/18 libxcrypt:x64-linux
+Elapsed time to handle libxcrypt:x64-linux: 1.52 ms
+Removing 12/18 vcpkg-make:x64-linux
+Elapsed time to handle vcpkg-make:x64-linux: 901 us
+Removing 13/18 zstd:x64-linux
+Elapsed time to handle zstd:x64-linux: 2.37 ms
+Installing 14/18 dbus:x64-linux@1.16.2...
+Building dbus:x64-linux@1.16.2...
+/home/pols/Coding/LoopieEngine/build/../vcpkg-overlays/ports/dbus: info: installing overlay port from here
+CMake Error at /home/pols/Coding/LoopieEngine/vcpkg-overlays/ports/dbus/portfile.cmake:2 (find_package):
+  By not providing "FindDBus1.cmake" in CMAKE_MODULE_PATH this project has
+  asked CMake to find a package configuration file provided by "DBus1", but
+  CMake did not find one.
+
+  Could not find a package configuration file provided by "DBus1" with any of
+  the following names:
+
+    DBus1Config.cmake
+    dbus1-config.cmake
+
+  Add the installation prefix of "DBus1" to CMAKE_PREFIX_PATH or set
+  "DBus1_DIR" to a directory containing one of the above files.  If "DBus1"
+  provides a separate development package or SDK, be sure it has been
+  installed.
+Call Stack (most recent call first):
+  scripts/ports.cmake:206 (include)
+
+
+error: building dbus:x64-linux failed with: BUILD_FAILED
+See https://learn.microsoft.com/vcpkg/troubleshoot/build-failures?WT.mc_id=vcpkg_inproduct_cli for more information.
+Elapsed time to handle dbus:x64-linux: 35.9 ms
+Please ensure you're using the latest port files with `git pull` and `vcpkg update`.
+Then check for known issues at:
+  https://github.com/microsoft/vcpkg/issues?q=is%3Aissue+is%3Aopen+in%3Atitle+dbus
+You can submit a new issue at:
+  https://github.com/microsoft/vcpkg/issues/new?title=%5Bdbus%5D%20build%20error%20on%20x64-linux&body=Copy%20issue%20body%20from%20%2Fhome%2Fpols%2FCoding%2FLoopieEngine%2Fvcpkg_installed%2Fvcpkg%2Fissue_body.md
+

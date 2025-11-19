@@ -4,6 +4,7 @@
 #include <fstream>
 #include <sstream>
 #include <glad/glad.h>
+#include <cstddef>
 
 namespace Loopie {
 	// If shader compilation/linking fails, GetIsValidShader() will return false.
@@ -473,7 +474,8 @@ namespace Loopie {
 			glGetActiveUniform(m_rendererID, i, maxNameLength, &length, &size, &type, nameBuffer.data());
 			std::string name(nameBuffer.data(), length);
 
-			if (name._Starts_with("lp_"))
+			// if (name._Starts_with("lp_")) // Not apt for Linux
+			if (name.rfind("lp_", 0) == 0)   // C++17 portable
 			{
 				continue;
 			}

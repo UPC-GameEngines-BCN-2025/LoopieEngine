@@ -22,8 +22,8 @@ namespace Loopie {
 	void Mesh::Reload()
 	{
 		Metadata* metadata = AssetRegistry::GetMetadata(GetUUID());
-		if (metadata->HasCache && m_meshIndex< metadata->CachesPath.size()) {
-			LoadFromFile(metadata->CachesPath[m_meshIndex]);
+		if (metadata->HasCache && m_meshIndex< metadata->cachesPath.size()) {
+			LoadFromFile(metadata->cachesPath[m_meshIndex]);
 		}
 	}
 }

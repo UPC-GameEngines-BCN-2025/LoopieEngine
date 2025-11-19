@@ -23,7 +23,7 @@ namespace Loopie {
 	{
 		Metadata* metadata = AssetRegistry::GetMetadata(GetUUID());
 		if (metadata->HasCache) {
-			LoadFromFile(metadata->CachesPath[0]);
+			LoadFromFile(metadata->cachesPath[0]);
 		}
 	}
 }

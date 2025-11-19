@@ -1,0 +1,1172 @@
+Preset CMake variables:
+
+  CMAKE_BUILD_TYPE="Release"
+  CMAKE_TOOLCHAIN_FILE="/home/pols/Coding/LoopieEngine/vendor/vcpkg/scripts/buildsystems/vcpkg.cmake"
+  VCPKG_INSTALLED_DIR="/home/pols/Coding/LoopieEngine/vendor/vcpkg_cache/Release"
+
+-- Running vcpkg install
+Detecting compiler hash for triplet x64-linux...
+Compiler found: /usr/bin/c++
+The following packages will be built and installed:
+    assimp:x64-linux@6.0.2#1
+  * dbus[core,systemd]:x64-linux@1.16.2#2
+    devil[core,jasper,lcms,libjpeg,libpng,openexr,tiff]:x64-linux@1.8.0#13
+  * draco:x64-linux@1.5.7
+  * egl-registry:x64-linux@2024-01-25
+  * expat:x64-linux@2.7.1
+  * fmt:x64-linux@11.2.0
+    glad[core,loader]:x64-linux@0.1.36
+    glm:x64-linux@1.0.1#3
+  * gperf:x64-linux@3.3
+  * imath:x64-linux@3.2.0
+    imgui[core,docking-experimental,opengl3-binding,sdl3-binding]:x64-linux@1.91.9
+    imguizmo:x64-linux@2024-05-29#1
+  * jasper:x64-linux@4.2.8
+  * jhasse-poly2tri:x64-linux@2023-12-27#2
+  * kubazip:x64-linux@0.3.5
+  * lcms:x64-linux@2.17
+  * libcap:x64-linux@2.73#1
+  * libdeflate[compression,core,decompression,gzip,zlib]:x64-linux@1.24
+  * libjpeg-turbo:x64-linux@3.1.1
+  * liblzma:x64-linux@5.8.1
+  * libmount:x64-linux@2.40
+  * libpng:x64-linux@1.6.50
+  * libsystemd:x64-linux@257.8
+  * libxcrypt:x64-linux@4.4.38#1
+    lz4:x64-linux@1.10.0
+  * minizip:x64-linux@1.3.1#1
+    nativefiledialog-extended:x64-linux@1.2.1
+    nlohmann-json:x64-linux@3.12.0#1
+  * openexr:x64-linux@3.3.5
+    opengl:x64-linux@2022-12-04#3
+  * opengl-registry:x64-linux@2024-02-10#1
+  * polyclipping:x64-linux@6.4.2#13
+  * pugixml:x64-linux@1.15
+  * rapidjson:x64-linux@2025-02-26
+    sdl3[core,ibus,wayland,x11]:x64-linux@3.2.22
+    spdlog:x64-linux@1.15.3
+  * stb:x64-linux@2024-07-29#1
+  * tiff[core,jpeg,lzma,zip]:x64-linux@4.7.0
+  * utfcpp:x64-linux@4.0.6
+  * vcpkg-cmake:x64-linux@2024-04-23
+  * vcpkg-cmake-config:x64-linux@2024-05-23
+  * vcpkg-cmake-get-vars:x64-linux@2025-05-29
+  * vcpkg-make:x64-linux@2025-09-14
+  * vcpkg-tool-meson:x64-linux@1.9.0
+  * zlib:x64-linux@1.3.1
+  * zstd:x64-linux@1.5.7
+Additional packages (*) will be modified to complete this operation.
+Restored 0 package(s) from /home/pols/.cache/vcpkg/archives in 91.6 us. Use --debug to see more details.
+Installing 1/47 vcpkg-cmake:x64-linux@2024-04-23...
+Building vcpkg-cmake:x64-linux@2024-04-23...
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/vcpkg-cmake_x64-linux/share/vcpkg-cmake/vcpkg_cmake_configure.cmake
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/vcpkg-cmake_x64-linux/share/vcpkg-cmake/vcpkg_cmake_build.cmake
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/vcpkg-cmake_x64-linux/share/vcpkg-cmake/vcpkg_cmake_install.cmake
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/vcpkg-cmake_x64-linux/share/vcpkg-cmake/vcpkg-port-config.cmake
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/vcpkg-cmake_x64-linux/share/vcpkg-cmake/copyright
+-- Performing post-build validation
+Starting submission of vcpkg-cmake:x64-linux@2024-04-23 to 1 binary cache(s) in the background
+Elapsed time to handle vcpkg-cmake:x64-linux: 103 ms
+vcpkg-cmake:x64-linux package ABI: f0fa37a436f9dede0b5c22c463f324bcb88c7982ccf126534794a771af116d85
+Installing 2/47 zlib:x64-linux@1.3.1...
+Building zlib:x64-linux@1.3.1...
+Downloading https://github.com/madler/zlib/archive/v1.3.1.tar.gz -> madler-zlib-v1.3.1.tar.gz
+Successfully downloaded madler-zlib-v1.3.1.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/madler-zlib-v1.3.1.tar.gz
+-- Applying patch 0001-Prevent-invalid-inclusions-when-HAVE_-is-set-to-0.patch
+-- Applying patch 0002-build-static-or-shared-not-both.patch
+-- Applying patch 0003-android-and-mingw-fixes.patch
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/zlib/src/v1.3.1-2e5db616bf.clean
+-- Configuring x64-linux
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/zlib_x64-linux/share/zlib/vcpkg-cmake-wrapper.cmake
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/zlib_x64-linux/lib/pkgconfig/zlib.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/zlib_x64-linux/debug/lib/pkgconfig/zlib.pc
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/zlib_x64-linux/share/zlib/copyright
+-- Performing post-build validation
+Starting submission of zlib:x64-linux@1.3.1 to 1 binary cache(s) in the background
+Elapsed time to handle zlib:x64-linux: 6.2 s
+zlib:x64-linux package ABI: cdc0dac12e7ca325044f0eda08207dcf896514456274678402c94cacf6245f18
+Completed submission of vcpkg-cmake:x64-linux@2024-04-23 to 1 binary cache(s) in 6.19 ms
+Installing 3/47 vcpkg-cmake-config:x64-linux@2024-05-23...
+Building vcpkg-cmake-config:x64-linux@2024-05-23...
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/vcpkg-cmake-config_x64-linux/share/vcpkg-cmake-config/vcpkg_cmake_config_fixup.cmake
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/vcpkg-cmake-config_x64-linux/share/vcpkg-cmake-config/vcpkg-port-config.cmake
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/vcpkg-cmake-config_x64-linux/share/vcpkg-cmake-config/copyright
+-- Skipping post-build validation due to VCPKG_POLICY_EMPTY_PACKAGE
+Starting submission of vcpkg-cmake-config:x64-linux@2024-05-23 to 1 binary cache(s) in the background
+Elapsed time to handle vcpkg-cmake-config:x64-linux: 71.7 ms
+vcpkg-cmake-config:x64-linux package ABI: a69b5177f7d78c6f4376b63cf9f5d04979fe7839248f45825da68623a7702261
+Installing 4/47 utfcpp:x64-linux@4.0.6...
+Building utfcpp:x64-linux@4.0.6...
+Downloading https://github.com/nemtrif/utfcpp/archive/v4.0.6.tar.gz -> nemtrif-utfcpp-v4.0.6.tar.gz
+Successfully downloaded nemtrif-utfcpp-v4.0.6.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/nemtrif-utfcpp-v4.0.6.tar.gz
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/utfcpp/src/v4.0.6-741a538a4a.clean
+-- Configuring x64-linux
+-- Building x64-linux-rel
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/utfcpp_x64-linux/share/utfcpp/copyright
+-- Performing post-build validation
+Starting submission of utfcpp:x64-linux@4.0.6 to 1 binary cache(s) in the background
+Elapsed time to handle utfcpp:x64-linux: 1.8 s
+utfcpp:x64-linux package ABI: 9bf973d62b711c9397794fb01b2ccc2fbf578317bfe86c11e37279df51143b68
+Completed submission of zlib:x64-linux@1.3.1 to 1 binary cache(s) in 97.9 ms
+Completed submission of vcpkg-cmake-config:x64-linux@2024-05-23 to 1 binary cache(s) in 4.91 ms
+Installing 5/47 stb:x64-linux@2024-07-29#1...
+Building stb:x64-linux@2024-07-29#1...
+Downloading https://github.com/nothings/stb/archive/f75e8d1cad7d90d72ef7a4661f1b994ef78b4e31.tar.gz -> nothings-stb-f75e8d1cad7d90d72ef7a4661f1b994ef78b4e31.tar.gz
+Successfully downloaded nothings-stb-f75e8d1cad7d90d72ef7a4661f1b994ef78b4e31.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/nothings-stb-f75e8d1cad7d90d72ef7a4661f1b994ef78b4e31.tar.gz
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/stb/src/4ef78b4e31-bf024d35de.clean
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/stb_x64-linux/share/stb/FindStb.cmake
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/stb_x64-linux/share/stb/vcpkg-cmake-wrapper.cmake
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/stb_x64-linux/share/stb/usage
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/stb_x64-linux/share/stb/copyright
+-- Performing post-build validation
+Starting submission of stb:x64-linux@2024-07-29#1 to 1 binary cache(s) in the background
+Elapsed time to handle stb:x64-linux: 2 s
+stb:x64-linux package ABI: 37e44acf6a876c88efce8258f3b8fcf7397a7afc41825aff0f1280417705faf7
+Completed submission of utfcpp:x64-linux@4.0.6 to 1 binary cache(s) in 16.4 ms
+Installing 6/47 rapidjson:x64-linux@2025-02-26...
+Building rapidjson:x64-linux@2025-02-26...
+Downloading https://github.com/Tencent/rapidjson/archive/24b5e7a8b27f42fa16b96fc70aade9106cf7102f.tar.gz -> Tencent-rapidjson-24b5e7a8b27f42fa16b96fc70aade9106cf7102f-2.tar.gz
+Successfully downloaded Tencent-rapidjson-24b5e7a8b27f42fa16b96fc70aade9106cf7102f-2.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/Tencent-rapidjson-24b5e7a8b27f42fa16b96fc70aade9106cf7102f-2.tar.gz
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/rapidjson/src/106cf7102f-b0877c68bd.clean
+-- Configuring x64-linux
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/rapidjson_x64-linux/lib/pkgconfig/RapidJSON.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/rapidjson_x64-linux/debug/lib/pkgconfig/RapidJSON.pc
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/rapidjson_x64-linux/share/rapidjson/copyright
+-- Performing post-build validation
+Starting submission of rapidjson:x64-linux@2025-02-26 to 1 binary cache(s) in the background
+Elapsed time to handle rapidjson:x64-linux: 2.4 s
+rapidjson:x64-linux package ABI: f20c89f93217e51b31e868668d2a0cb80b89b4aae5257c0551dc8cbc6ed027d0
+Completed submission of stb:x64-linux@2024-07-29#1 to 1 binary cache(s) in 172 ms
+Installing 7/47 pugixml:x64-linux@1.15...
+Building pugixml:x64-linux@1.15...
+Downloading https://github.com/zeux/pugixml/archive/v1.15.tar.gz -> zeux-pugixml-v1.15.tar.gz
+Successfully downloaded zeux-pugixml-v1.15.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/zeux-pugixml-v1.15.tar.gz
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/pugixml/src/v1.15-8a9beec4a5.clean
+-- Configuring x64-linux
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/pugixml_x64-linux/lib/pkgconfig/pugixml.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/pugixml_x64-linux/debug/lib/pkgconfig/pugixml.pc
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/pugixml_x64-linux/share/pugixml/copyright
+-- Performing post-build validation
+Starting submission of pugixml:x64-linux@1.15 to 1 binary cache(s) in the background
+Elapsed time to handle pugixml:x64-linux: 14 s
+pugixml:x64-linux package ABI: 3683220a771142ae21fa44224c4ae0880cf19bf3c6db2f14a6ab3948a1fcb275
+Completed submission of rapidjson:x64-linux@2025-02-26 to 1 binary cache(s) in 55.8 ms
+Installing 8/47 polyclipping:x64-linux@6.4.2#13...
+Building polyclipping:x64-linux@6.4.2#13...
+Downloading clipper_ver6.4.2.zip, trying https://sourceforge.net/projects/polyclipping/files/clipper_ver6.4.2.zip/download
+Successfully downloaded clipper_ver6.4.2.zip
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/clipper_ver6.4.2.zip
+-- Applying patch fix_targets.patch
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/polyclipping/src/-06b887c850.clean
+-- Configuring x64-linux
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/polyclipping_x64-linux/lib/pkgconfig/polyclipping.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/polyclipping_x64-linux/debug/lib/pkgconfig/polyclipping.pc
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/polyclipping_x64-linux/share/clipper/FindCLIPPER.cmake
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/polyclipping_x64-linux/share/clipper/vcpkg-cmake-wrapper.cmake
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/polyclipping_x64-linux/share/polyclipping/copyright
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/polyclipping_x64-linux/lib/pkgconfig/polyclipping.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/polyclipping_x64-linux/debug/lib/pkgconfig/polyclipping.pc
+-- Performing post-build validation
+Starting submission of polyclipping:x64-linux@6.4.2#13 to 1 binary cache(s) in the background
+Elapsed time to handle polyclipping:x64-linux: 14 s
+polyclipping:x64-linux package ABI: 910a4d1867c666bb940d1991d75563ea95c5632e09ee7f5756bf79f047dcae6b
+Completed submission of pugixml:x64-linux@1.15 to 1 binary cache(s) in 236 ms
+Installing 9/47 vcpkg-cmake-get-vars:x64-linux@2025-05-29...
+Building vcpkg-cmake-get-vars:x64-linux@2025-05-29...
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/vcpkg-cmake-get-vars_x64-linux/share/vcpkg-cmake-get-vars/vcpkg_cmake_get_vars.cmake
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/vcpkg-cmake-get-vars_x64-linux/share/vcpkg-cmake-get-vars/cmake_get_vars
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/vcpkg-cmake-get-vars_x64-linux/share/vcpkg-cmake-get-vars/cmake_get_vars/CMakeLists.txt
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/vcpkg-cmake-get-vars_x64-linux/share/vcpkg-cmake-get-vars/cmake-get-vars.cmake.in
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/vcpkg-cmake-get-vars_x64-linux/share/vcpkg-cmake-get-vars/vcpkg-port-config.cmake
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/vcpkg-cmake-get-vars_x64-linux/share/vcpkg-cmake-get-vars/copyright
+-- Performing post-build validation
+Starting submission of vcpkg-cmake-get-vars:x64-linux@2025-05-29 to 1 binary cache(s) in the background
+Elapsed time to handle vcpkg-cmake-get-vars:x64-linux: 62.3 ms
+vcpkg-cmake-get-vars:x64-linux package ABI: 79e4bf618f88f1f375f9e1d0fcbed3d225a00e1b47499d3844106c1f8122bf0f
+Installing 10/47 minizip:x64-linux@1.3.1#1...
+Building minizip:x64-linux@1.3.1#1...
+-- Using cached madler-zlib-v1.3.1.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/madler-zlib-v1.3.1.tar.gz
+-- Applying patch 0001-remove-ifndef-NOUNCRYPT.patch
+-- Applying patch 0002-add-declaration-for-mkdir.patch
+-- Applying patch pkgconfig.patch
+-- Applying patch android-fileapi.patch
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/minizip/src/v1.3.1-2a3c4cf735.clean
+-- Configuring x64-linux
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/minizip_x64-linux/lib/pkgconfig/minizip.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/minizip_x64-linux/debug/lib/pkgconfig/minizip.pc
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/minizip_x64-linux/share/minizip/copyright
+-- Performing post-build validation
+Starting submission of minizip:x64-linux@1.3.1#1 to 1 binary cache(s) in the background
+Elapsed time to handle minizip:x64-linux: 2.6 s
+minizip:x64-linux package ABI: aebf5d6ae81e8cb401ad0205c3e990268dfebc81576e9af4bb4d058b073a067b
+Completed submission of polyclipping:x64-linux@6.4.2#13 to 1 binary cache(s) in 176 ms
+Completed submission of vcpkg-cmake-get-vars:x64-linux@2025-05-29 to 1 binary cache(s) in 6.09 ms
+Installing 11/47 kubazip:x64-linux@0.3.5...
+Building kubazip:x64-linux@0.3.5...
+Downloading https://github.com/kuba--/zip/archive/v0.3.5.tar.gz -> kuba---zip-v0.3.5.tar.gz
+Successfully downloaded kuba---zip-v0.3.5.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/kuba---zip-v0.3.5.tar.gz
+-- Applying patch fix-name-conflict.diff
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/kubazip/src/v0.3.5-00dd9aa233.clean
+-- Configuring x64-linux
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/kubazip_x64-linux/share/kubazip/kubazipConfig.cmake
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/kubazip_x64-linux/share/kubazip/usage
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/kubazip_x64-linux/share/kubazip/copyright
+-- Performing post-build validation
+Starting submission of kubazip:x64-linux@0.3.5 to 1 binary cache(s) in the background
+Elapsed time to handle kubazip:x64-linux: 8.4 s
+kubazip:x64-linux package ABI: 7f4077acb726c282e0037d6346331099d8c864197c02becd249d1a41557bc60c
+Completed submission of minizip:x64-linux@1.3.1#1 to 1 binary cache(s) in 59.5 ms
+Installing 12/47 jhasse-poly2tri:x64-linux@2023-12-27#2...
+Building jhasse-poly2tri:x64-linux@2023-12-27#2...
+Downloading https://github.com/jhasse/poly2tri/archive/0171f030bd3d5c6747c29d93403546eed668a1b6.tar.gz -> jhasse-poly2tri-0171f030bd3d5c6747c29d93403546eed668a1b6.tar.gz
+Successfully downloaded jhasse-poly2tri-0171f030bd3d5c6747c29d93403546eed668a1b6.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/jhasse-poly2tri-0171f030bd3d5c6747c29d93403546eed668a1b6.tar.gz
+-- Applying patch cmake.patch
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/jhasse-poly2tri/src/eed668a1b6-2f597c27ae.clean
+-- Configuring x64-linux
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/jhasse-poly2tri_x64-linux/share/jhasse-poly2tri/usage
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/jhasse-poly2tri_x64-linux/share/jhasse-poly2tri/copyright
+-- Performing post-build validation
+Starting submission of jhasse-poly2tri:x64-linux@2023-12-27#2 to 1 binary cache(s) in the background
+Elapsed time to handle jhasse-poly2tri:x64-linux: 4.9 s
+jhasse-poly2tri:x64-linux package ABI: 55d7a33847daf95ee658be3bdb3d02d13b7de3cdb0c8ad4ba7817bf056d4ffdf
+Completed submission of kubazip:x64-linux@0.3.5 to 1 binary cache(s) in 114 ms
+Installing 13/47 draco:x64-linux@1.5.7...
+Building draco:x64-linux@1.5.7...
+Downloading https://github.com/google/draco/archive/1.5.7.tar.gz -> google-draco-1.5.7.tar.gz
+Successfully downloaded google-draco-1.5.7.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/google-draco-1.5.7.tar.gz
+-- Applying patch fix-compile-error-uwp.patch
+-- Applying patch fix-uwperror.patch
+-- Applying patch fix-pkgconfig.patch
+-- Applying patch disable-symlinks.patch
+-- Applying patch install-linkage.diff
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/draco/src/1.5.7-c71437a6c1.clean
+-- Configuring x64-linux
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/draco_x64-linux/lib/pkgconfig/draco.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/draco_x64-linux/debug/lib/pkgconfig/draco.pc
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/draco_x64-linux/share/draco/copyright
+-- Adjusted RPATH of '/home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/draco_x64-linux/tools/draco/draco_decoder' (From '' -> To '$ORIGIN:$ORIGIN/../../lib')
+-- Adjusted RPATH of '/home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/draco_x64-linux/tools/draco/draco_encoder' (From '' -> To '$ORIGIN:$ORIGIN/../../lib')
+-- Performing post-build validation
+Starting submission of draco:x64-linux@1.5.7 to 1 binary cache(s) in the background
+Elapsed time to handle draco:x64-linux: 2.5 min
+draco:x64-linux package ABI: 47c5962c20d1521386ed00f8caf544bb53b72c0180bd65d60d979ae7459d939b
+Completed submission of jhasse-poly2tri:x64-linux@2023-12-27#2 to 1 binary cache(s) in 150 ms
+Installing 14/47 assimp:x64-linux@6.0.2#1...
+Building assimp:x64-linux@6.0.2#1...
+Downloading https://github.com/assimp/assimp/archive/v6.0.2.tar.gz -> assimp-assimp-v6.0.2.tar.gz
+Successfully downloaded assimp-assimp-v6.0.2.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/assimp-assimp-v6.0.2.tar.gz
+-- Applying patch build_fixes.patch
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/assimp/src/v6.0.2-7742348140.clean
+-- Configuring x64-linux
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/assimp_x64-linux/lib/pkgconfig/assimp.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/assimp_x64-linux/debug/lib/pkgconfig/assimp.pc
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/assimp_x64-linux/share/assimp/copyright
+-- Performing post-build validation
+Starting submission of assimp:x64-linux@6.0.2#1 to 1 binary cache(s) in the background
+Elapsed time to handle assimp:x64-linux: 7.6 min
+assimp:x64-linux package ABI: 2b9b6c47b6456d1ed3bb2709e3e8bcd88268ef14d640f492d2ad9097e703a9aa
+Completed submission of draco:x64-linux@1.5.7 to 1 binary cache(s) in 5.1 s
+Installing 15/47 liblzma:x64-linux@5.8.1...
+Building liblzma:x64-linux@5.8.1...
+Downloading https://github.com/tukaani-project/xz/archive/v5.8.1.tar.gz -> tukaani-project-xz-v5.8.1.tar.gz
+Successfully downloaded tukaani-project-xz-v5.8.1.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/tukaani-project-xz-v5.8.1.tar.gz
+-- Applying patch build-tools.patch
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/liblzma/src/v5.8.1-7ed4ee158b.clean
+-- Configuring x64-linux
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/liblzma_x64-linux/lib/pkgconfig/liblzma.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/liblzma_x64-linux/debug/lib/pkgconfig/liblzma.pc
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/liblzma_x64-linux/share/liblzma/copyright
+-- Performing post-build validation
+Starting submission of liblzma:x64-linux@5.8.1 to 1 binary cache(s) in the background
+Elapsed time to handle liblzma:x64-linux: 23 s
+liblzma:x64-linux package ABI: 0ee64c392e11ab85965d3db2d9c9d6e51280123de92d07adf22c5913769f04cb
+Installing 16/47 libjpeg-turbo:x64-linux@3.1.1...
+Building libjpeg-turbo:x64-linux@3.1.1...
+Downloading https://github.com/libjpeg-turbo/libjpeg-turbo/archive/3.1.1.tar.gz -> libjpeg-turbo-libjpeg-turbo-3.1.1.tar.gz
+Successfully downloaded libjpeg-turbo-libjpeg-turbo-3.1.1.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/libjpeg-turbo-libjpeg-turbo-3.1.1.tar.gz
+-- Applying patch add-options-for-exes-docs-headers.patch
+-- Applying patch workaround_cmake_system_processor.patch
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/libjpeg-turbo/src/3.1.1-23af682a76.clean
+-- Configuring x64-linux
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/libjpeg-turbo_x64-linux/lib/pkgconfig/libjpeg.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/libjpeg-turbo_x64-linux/lib/pkgconfig/libturbojpeg.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/libjpeg-turbo_x64-linux/debug/lib/pkgconfig/libjpeg.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/libjpeg-turbo_x64-linux/debug/lib/pkgconfig/libturbojpeg.pc
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/libjpeg-turbo_x64-linux/share/libjpeg-turbo/copyright
+-- Performing post-build validation
+Starting submission of libjpeg-turbo:x64-linux@3.1.1 to 1 binary cache(s) in the background
+Elapsed time to handle libjpeg-turbo:x64-linux: 35 s
+libjpeg-turbo:x64-linux package ABI: 92a91aaa7b0b30e09c0e5efa33b72efe8527c8ce5224dcdaa898311eebfbac7d
+Completed submission of assimp:x64-linux@6.0.2#1 to 1 binary cache(s) in 25 s
+Completed submission of liblzma:x64-linux@5.8.1 to 1 binary cache(s) in 217 ms
+Installing 17/47 tiff[core,jpeg,lzma,zip]:x64-linux@4.7.0...
+Building tiff[core,jpeg,lzma,zip]:x64-linux@4.7.0...
+Downloading https://gitlab.com/libtiff/libtiff/-/archive/v4.7.0/libtiff-v4.7.0.tar.gz -> libtiff-libtiff-v4.7.0.tar.gz
+Successfully downloaded libtiff-libtiff-v4.7.0.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/libtiff-libtiff-v4.7.0.tar.gz
+-- Applying patch FindCMath.patch
+-- Applying patch prefer-config.diff
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/tiff/src/v4.7.0-05e0c9997b.clean
+-- Configuring x64-linux
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/tiff_x64-linux/lib/pkgconfig/libtiff-4.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/tiff_x64-linux/debug/lib/pkgconfig/libtiff-4.pc
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/tiff_x64-linux/share/tiff/copyright
+-- Performing post-build validation
+Starting submission of tiff[core,jpeg,lzma,zip]:x64-linux@4.7.0 to 1 binary cache(s) in the background
+Elapsed time to handle tiff:x64-linux: 16 s
+tiff:x64-linux package ABI: 97ac5c7bf193b772d5f73d2db12de50be82f8fb648eee4bd51e56333686cab08
+Completed submission of libjpeg-turbo:x64-linux@3.1.1 to 1 binary cache(s) in 1.1 s
+Installing 18/47 libdeflate[compression,core,decompression,gzip,zlib]:x64-linux@1.24...
+Building libdeflate[compression,core,decompression,gzip,zlib]:x64-linux@1.24...
+Downloading https://github.com/ebiggers/libdeflate/archive/v1.24.tar.gz -> ebiggers-libdeflate-v1.24.tar.gz
+Successfully downloaded ebiggers-libdeflate-v1.24.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/ebiggers-libdeflate-v1.24.tar.gz
+-- Applying patch remove_wrong_c_flags_modification.diff
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/libdeflate/src/v1.24-17dfa8f970.clean
+-- Configuring x64-linux
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/libdeflate_x64-linux/lib/pkgconfig/libdeflate.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/libdeflate_x64-linux/debug/lib/pkgconfig/libdeflate.pc
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/libdeflate_x64-linux/share/libdeflate/copyright
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/libdeflate_x64-linux/share/libdeflate/usage
+-- Performing post-build validation
+Starting submission of libdeflate[compression,core,decompression,gzip,zlib]:x64-linux@1.24 to 1 binary cache(s) in the background
+Elapsed time to handle libdeflate:x64-linux: 11 s
+libdeflate:x64-linux package ABI: ae5b03e773bc3afde63184864052efd8651e48db78a4b96e037f1104bbf1e846
+Completed submission of tiff[core,jpeg,lzma,zip]:x64-linux@4.7.0 to 1 binary cache(s) in 294 ms
+Installing 19/47 imath:x64-linux@3.2.0...
+Building imath:x64-linux@3.2.0...
+Downloading https://github.com/AcademySoftwareFoundation/Imath/archive/v3.2.0.tar.gz -> AcademySoftwareFoundation-Imath-v3.2.0.tar.gz
+Successfully downloaded AcademySoftwareFoundation-Imath-v3.2.0.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/AcademySoftwareFoundation-Imath-v3.2.0.tar.gz
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/imath/src/v3.2.0-01b2b975f2.clean
+-- Configuring x64-linux
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/imath_x64-linux/lib/pkgconfig/Imath.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/imath_x64-linux/debug/lib/pkgconfig/Imath.pc
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/imath_x64-linux/share/imath/copyright
+-- Performing post-build validation
+Starting submission of imath:x64-linux@3.2.0 to 1 binary cache(s) in the background
+Elapsed time to handle imath:x64-linux: 10 s
+imath:x64-linux package ABI: 2ddf0434977ab5e9435a2bc3770cb6a643daba438e9fa88170f6868b8fc1e7ae
+Completed submission of libdeflate[compression,core,decompression,gzip,zlib]:x64-linux@1.24 to 1 binary cache(s) in 103 ms
+Installing 20/47 openexr:x64-linux@3.3.5...
+Building openexr:x64-linux@3.3.5...
+Downloading https://github.com/AcademySoftwareFoundation/openexr/archive/v3.3.5.tar.gz -> AcademySoftwareFoundation-openexr-v3.3.5.tar.gz
+Successfully downloaded AcademySoftwareFoundation-openexr-v3.3.5.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/AcademySoftwareFoundation-openexr-v3.3.5.tar.gz
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/openexr/src/v3.3.5-bf10202e44.clean
+-- Configuring x64-linux
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/openexr_x64-linux/lib/pkgconfig/OpenEXR.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/openexr_x64-linux/debug/lib/pkgconfig/OpenEXR.pc
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/openexr_x64-linux/share/openexr/usage
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/openexr_x64-linux/share/openexr/copyright
+-- Performing post-build validation
+Starting submission of openexr:x64-linux@3.3.5 to 1 binary cache(s) in the background
+Elapsed time to handle openexr:x64-linux: 2.3 min
+openexr:x64-linux package ABI: 42c8e5047fd353bbecae3570365fedc485d9254f567abc3b2b2e4f8e8b452d3b
+Completed submission of imath:x64-linux@3.2.0 to 1 binary cache(s) in 180 ms
+Installing 21/47 libpng:x64-linux@1.6.50...
+Building libpng:x64-linux@1.6.50...
+Downloading https://github.com/pnggroup/libpng/archive/v1.6.50.tar.gz -> pnggroup-libpng-v1.6.50.tar.gz
+Successfully downloaded pnggroup-libpng-v1.6.50.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/pnggroup-libpng-v1.6.50.tar.gz
+-- Applying patch cmake.patch
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/libpng/src/v1.6.50-13b6aa9451.clean
+-- Configuring x64-linux
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/libpng_x64-linux/share/png/vcpkg-cmake-wrapper.cmake
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/libpng_x64-linux/share/libpng/libpng-config.cmake
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/libpng_x64-linux/lib/pkgconfig/libpng16.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/libpng_x64-linux/debug/lib/pkgconfig/libpng16.pc
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/libpng_x64-linux/debug/lib/pkgconfig/libpng.pc
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/libpng_x64-linux/lib/pkgconfig/libpng.pc
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/libpng_x64-linux/share/libpng/usage
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/libpng_x64-linux/share/libpng/copyright
+-- Performing post-build validation
+Starting submission of libpng:x64-linux@1.6.50 to 1 binary cache(s) in the background
+Elapsed time to handle libpng:x64-linux: 10 s
+libpng:x64-linux package ABI: f3b763f052131d43d19ed6e3cb98a7da0279b060854cac55d4c9819ddbf4c9d7
+Completed submission of openexr:x64-linux@3.3.5 to 1 binary cache(s) in 3.9 s
+Installing 22/47 vcpkg-tool-meson:x64-linux@1.9.0...
+Building vcpkg-tool-meson:x64-linux@1.9.0...
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/vcpkg-tool-meson_x64-linux/share/vcpkg-tool-meson/copyright
+-- Found Python version '3.14.0 at /usr/bin/python3'
+-- Using meson: /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/tools/meson-1.9.0-7310ba/meson.py
+-- Performing post-build validation
+Starting submission of vcpkg-tool-meson:x64-linux@1.9.0 to 1 binary cache(s) in the background
+Elapsed time to handle vcpkg-tool-meson:x64-linux: 207 ms
+vcpkg-tool-meson:x64-linux package ABI: f21bee8c6db1c0a8aa9dcf16433f6a0a4069993be909b312b5a1c82f20f7aa4b
+Installing 23/47 lcms:x64-linux@2.17...
+Building lcms:x64-linux@2.17...
+-- Found Python version '3.14.0 at /usr/bin/python3'
+-- Using meson: /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/tools/meson-1.9.0-7310ba/meson.py
+Downloading https://github.com/mm2/Little-CMS/archive/lcms2.17.tar.gz -> mm2-Little-CMS-lcms2.17.tar.gz
+Successfully downloaded mm2-Little-CMS-lcms2.17.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/mm2-Little-CMS-lcms2.17.tar.gz
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/lcms/src/lcms2.17-afcc5fcb76.clean
+-- Configuring x64-linux-dbg
+-- Getting CMake variables for x64-linux
+-- Loading CMake variables from /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/lcms/cmake-get-vars_C_CXX-x64-linux.cmake.log
+-- Configuring x64-linux-dbg done
+-- Configuring x64-linux-rel
+-- Configuring x64-linux-rel done
+-- Package x64-linux-dbg
+-- Package x64-linux-rel
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/lcms_x64-linux/lib/pkgconfig/lcms2.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/lcms_x64-linux/debug/lib/pkgconfig/lcms2.pc
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/lcms_x64-linux/share/lcms/lcms-config.cmake
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/lcms_x64-linux/share/lcms2/lcms2-config.cmake
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/lcms_x64-linux/share/lcms/usage
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/lcms_x64-linux/share/lcms/copyright
+-- Performing post-build validation
+Starting submission of lcms:x64-linux@2.17 to 1 binary cache(s) in the background
+Elapsed time to handle lcms:x64-linux: 23 s
+lcms:x64-linux package ABI: fc1cd8235aecf8498014d32e1aacaa6b108c1eff979d124fa73959687bdc7248
+Completed submission of libpng:x64-linux@1.6.50 to 1 binary cache(s) in 278 ms
+Completed submission of vcpkg-tool-meson:x64-linux@1.9.0 to 1 binary cache(s) in 6.36 ms
+Installing 24/47 jasper:x64-linux@4.2.8...
+Building jasper:x64-linux@4.2.8...
+Downloading https://github.com/jasper-software/jasper/archive/version-4.2.8.tar.gz -> jasper-software-jasper-version-4.2.8.tar.gz
+Successfully downloaded jasper-software-jasper-version-4.2.8.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/jasper-software-jasper-version-4.2.8.tar.gz
+-- Applying patch no_stdc_check.patch
+-- Applying patch fix-library-name.patch
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/jasper/src/sion-4.2.8-221e416d41.clean
+-- Configuring x64-linux
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/jasper_x64-linux/lib/pkgconfig/jasper.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/jasper_x64-linux/debug/lib/pkgconfig/jasper.pc
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/jasper_x64-linux/share/jasper/copyright
+-- Performing post-build validation
+Starting submission of jasper:x64-linux@4.2.8 to 1 binary cache(s) in the background
+Elapsed time to handle jasper:x64-linux: 19 s
+jasper:x64-linux package ABI: cba535b26d5d3721b38dd6322a95477f0de082bc63931e32ec179ee4cdb97e1d
+Completed submission of lcms:x64-linux@2.17 to 1 binary cache(s) in 286 ms
+Installing 25/47 devil[core,jasper,lcms,libjpeg,libpng,openexr,tiff]:x64-linux@1.8.0#13...
+Building devil[core,jasper,lcms,libjpeg,libpng,openexr,tiff]:x64-linux@1.8.0#13...
+Downloading https://github.com/DentonW/DevIL/archive/v1.8.0.tar.gz -> DentonW-DevIL-v1.8.0.tar.gz
+Successfully downloaded DentonW-DevIL-v1.8.0.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/DentonW-DevIL-v1.8.0.tar.gz
+-- Applying patch 0001_fix-encoding.patch
+-- Applying patch 0002_fix-missing-mfc-includes.patch
+-- Applying patch 0003_fix-openexr.patch
+-- Applying patch enable-static.patch
+-- Applying patch 0004_compatible-jasper-2-0-20.patch
+-- Applying patch 0005-fix-pkgconfig.patch
+-- Applying patch 0006-fix-ilut-header.patch
+-- Applying patch jasper-4.patch
+-- Applying patch 0007-remove_register_keyword_cpp17.patch
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/devil/src/v1.8.0-c7d44c3635.clean
+-- Configuring x64-linux-dbg
+-- Configuring x64-linux-rel
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/devil_x64-linux/lib/pkgconfig/IL.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/devil_x64-linux/lib/pkgconfig/ILU.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/devil_x64-linux/lib/pkgconfig/ILUT.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/devil_x64-linux/debug/lib/pkgconfig/IL.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/devil_x64-linux/debug/lib/pkgconfig/ILU.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/devil_x64-linux/debug/lib/pkgconfig/ILUT.pc
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/devil_x64-linux/share/devil/copyright
+-- Performing post-build validation
+Starting submission of devil[core,jasper,lcms,libjpeg,libpng,openexr,tiff]:x64-linux@1.8.0#13 to 1 binary cache(s) in the background
+Elapsed time to handle devil:x64-linux: 26 s
+devil:x64-linux package ABI: f1856e529826e97472c9259f592803dd1d7e932c76b57d75a14d7457ddf5423b
+Completed submission of jasper:x64-linux@4.2.8 to 1 binary cache(s) in 280 ms
+Installing 26/47 egl-registry:x64-linux@2024-01-25...
+Building egl-registry:x64-linux@2024-01-25...
+Downloading https://github.com/KhronosGroup/EGL-Registry/archive/7db3005d4c2cb439f129a0adc931f3274f9019e6.tar.gz -> KhronosGroup-EGL-Registry-7db3005d4c2cb439f129a0adc931f3274f9019e6.tar.gz
+Successfully downloaded KhronosGroup-EGL-Registry-7db3005d4c2cb439f129a0adc931f3274f9019e6.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/KhronosGroup-EGL-Registry-7db3005d4c2cb439f129a0adc931f3274f9019e6.tar.gz
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/egl-registry/src/274f9019e6-49d6bdb34a.clean
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/egl-registry_x64-linux/share/egl-registry/copyright
+-- Performing post-build validation
+Starting submission of egl-registry:x64-linux@2024-01-25 to 1 binary cache(s) in the background
+Elapsed time to handle egl-registry:x64-linux: 2 s
+egl-registry:x64-linux package ABI: 8d80f0dabd7f0fb61e198869f36a9b639613ece8114b0e16d8b8a5ae9c54e3c4
+Completed submission of devil[core,jasper,lcms,libjpeg,libpng,openexr,tiff]:x64-linux@1.8.0#13 to 1 binary cache(s) in 465 ms
+Installing 27/47 opengl-registry:x64-linux@2024-02-10#1...
+Building opengl-registry:x64-linux@2024-02-10#1...
+Downloading https://github.com/KhronosGroup/OpenGL-Registry/archive/3530768138c5ba3dfbb2c43c830493f632f7ea33.tar.gz -> KhronosGroup-OpenGL-Registry-3530768138c5ba3dfbb2c43c830493f632f7ea33.tar.gz
+Successfully downloaded KhronosGroup-OpenGL-Registry-3530768138c5ba3dfbb2c43c830493f632f7ea33.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/KhronosGroup-OpenGL-Registry-3530768138c5ba3dfbb2c43c830493f632f7ea33.tar.gz
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/opengl-registry/src/f632f7ea33-4952f9ace9.clean
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/opengl-registry_x64-linux/share/opengl-registry/copyright
+-- Performing post-build validation
+Starting submission of opengl-registry:x64-linux@2024-02-10#1 to 1 binary cache(s) in the background
+Elapsed time to handle opengl-registry:x64-linux: 45 s
+opengl-registry:x64-linux package ABI: e1c15b4a580bb4e89a1976f62ab90aef6366eb86334177d358d16081aa8ae8ab
+Completed submission of egl-registry:x64-linux@2024-01-25 to 1 binary cache(s) in 15 ms
+Installing 28/47 glad[core,loader]:x64-linux@0.1.36...
+Building glad[core,loader]:x64-linux@0.1.36...
+Downloading https://github.com/Dav1dde/glad/archive/1ecd45775d96f35170458e6b148eb0708967e402.tar.gz -> Dav1dde-glad-1ecd45775d96f35170458e6b148eb0708967e402.tar.gz
+Successfully downloaded Dav1dde-glad-1ecd45775d96f35170458e6b148eb0708967e402.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/Dav1dde-glad-1ecd45775d96f35170458e6b148eb0708967e402.tar.gz
+-- Applying patch encoding.patch
+-- Applying patch find_python.patch
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/glad/src/708967e402-274d415499.clean
+-- This version of glad uses the compatibility profile. To use the core profile instead, create an overlay port of this with GLAD_PROFILE set to 'core' or set GLAD_PROFILE to 'core' in a custom triplet.
+-- This recipe is at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/versioning_/versions/glad/fa93b14c1581057e1d14650f5f15c9b0757dd548
+-- See the overlay ports documentation at https://github.com/microsoft/vcpkg/blob/master/docs/specifications/ports-overlay.md
+-- Configuring x64-linux
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/glad_x64-linux/share/glad/copyright
+-- Performing post-build validation
+Starting submission of glad[core,loader]:x64-linux@0.1.36 to 1 binary cache(s) in the background
+Elapsed time to handle glad:x64-linux: 6.8 s
+glad:x64-linux package ABI: 959eb3200caa00f7f84dbd821b73947f1a0a9aa14b7fe10c20cf3f51893611e2
+Completed submission of opengl-registry:x64-linux@2024-02-10#1 to 1 binary cache(s) in 212 ms
+Installing 29/47 glm:x64-linux@1.0.1#3...
+Building glm:x64-linux@1.0.1#3...
+Downloading https://github.com/g-truc/glm/archive/1.0.1.tar.gz -> g-truc-glm-1.0.1.tar.gz
+Successfully downloaded g-truc-glm-1.0.1.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/g-truc-glm-1.0.1.tar.gz
+-- Applying patch fix-clang.patch
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/glm/src/1.0.1-cf6930f99d.clean
+-- Configuring x64-linux
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/glm_x64-linux/share/glm/copyright
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/glm_x64-linux/share/glm/usage
+-- Performing post-build validation
+Starting submission of glm:x64-linux@1.0.1#3 to 1 binary cache(s) in the background
+Elapsed time to handle glm:x64-linux: 15 s
+glm:x64-linux package ABI: 029457ce1723506c68d57e6db3e658633d81ec1ab6c577179d6128b29e229c6a
+Completed submission of glad[core,loader]:x64-linux@0.1.36 to 1 binary cache(s) in 102 ms
+Installing 30/47 zstd:x64-linux@1.5.7...
+Building zstd:x64-linux@1.5.7...
+Downloading https://github.com/facebook/zstd/archive/v1.5.7.tar.gz -> facebook-zstd-v1.5.7.tar.gz
+Successfully downloaded facebook-zstd-v1.5.7.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/facebook-zstd-v1.5.7.tar.gz
+-- Applying patch no-static-suffix.patch
+-- Applying patch fix-emscripten-and-clang-cl.patch
+-- Applying patch fix-windows-rc-compile.patch
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/zstd/src/v1.5.7-bb6cae2b2e.clean
+-- Configuring x64-linux
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/zstd_x64-linux/lib/pkgconfig/libzstd.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/zstd_x64-linux/debug/lib/pkgconfig/libzstd.pc
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/zstd_x64-linux/share/zstd/usage
+-- Performing post-build validation
+Starting submission of zstd:x64-linux@1.5.7 to 1 binary cache(s) in the background
+Elapsed time to handle zstd:x64-linux: 39 s
+zstd:x64-linux package ABI: a746ccad0c62acb5e9108e665ce903dfbe8db6aead53be0a05a4d6d2c5303de6
+Completed submission of glm:x64-linux@1.0.1#3 to 1 binary cache(s) in 284 ms
+Installing 31/47 lz4:x64-linux@1.10.0...
+Building lz4:x64-linux@1.10.0...
+Downloading https://github.com/lz4/lz4/archive/v1.10.0.tar.gz -> lz4-lz4-v1.10.0.tar.gz
+Successfully downloaded lz4-lz4-v1.10.0.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/lz4-lz4-v1.10.0.tar.gz
+-- Applying patch target-lz4-lz4.diff
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/lz4/src/v1.10.0-61bd08d80e.clean
+-- Configuring x64-linux
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/lz4_x64-linux/lib/pkgconfig/liblz4.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/lz4_x64-linux/debug/lib/pkgconfig/liblz4.pc
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/lz4_x64-linux/share/lz4/usage
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/lz4_x64-linux/share/lz4/copyright
+-- Performing post-build validation
+Starting submission of lz4:x64-linux@1.10.0 to 1 binary cache(s) in the background
+Elapsed time to handle lz4:x64-linux: 17 s
+lz4:x64-linux package ABI: 3cd13d62b9dff1c0b441189fd02a2133a94bb8c76f8368a5c0b0a44b9fbf1ca2
+Completed submission of zstd:x64-linux@1.5.7 to 1 binary cache(s) in 530 ms
+Installing 32/47 vcpkg-make:x64-linux@2025-09-14...
+Building vcpkg-make:x64-linux@2025-09-14...
+Downloading automake-1.17.tar.gz, trying https://ftp.gnu.org/gnu/automake/automake-1.17.tar.gz
+Successfully downloaded automake-1.17.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/automake-1.17.tar.gz
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/vcpkg-make/src/automake-1-c362683103.clean
+-- Getting CMake variables for x64-linux
+-- Loading CMake variables from /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/vcpkg-make/cmake-get-vars_C_CXX-x64-linux.cmake.log
+-- x64-linux autotools triplet: x86_64-pc-linux-gnu (from config.guess)
+-- Performing post-build validation
+Starting submission of vcpkg-make:x64-linux@2025-09-14 to 1 binary cache(s) in the background
+Elapsed time to handle vcpkg-make:x64-linux: 6.5 s
+vcpkg-make:x64-linux package ABI: 4fcc0e9871be25f1a90cfd4d84a89491fecb71d3cbf51b6214b92d32acb99082
+Completed submission of lz4:x64-linux@1.10.0 to 1 binary cache(s) in 289 ms
+Installing 33/47 libxcrypt:x64-linux@4.4.38#1...
+Building libxcrypt:x64-linux@4.4.38#1...
+-- libxcrypt requires libltdl-dev from the system package manager (example: "sudo apt install libltdl-dev")
+Downloading https://github.com/besser82/libxcrypt/archive/v4.4.38.tar.gz -> besser82-libxcrypt-v4.4.38.tar.gz
+Successfully downloaded besser82-libxcrypt-v4.4.38.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/besser82-libxcrypt-v4.4.38.tar.gz
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/libxcrypt/src/v4.4.38-9da89a5066.clean
+-- Getting CMake variables for x64-linux
+-- Loading CMake variables from /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/libxcrypt/cmake-get-vars_C_CXX-x64-linux.cmake.log
+-- Generating configure for x64-linux
+-- Finished generating configure for x64-linux
+-- Configuring x64-linux-dbg
+-- Configuring x64-linux-rel
+-- Building/Installing x64-linux-dbg
+-- Making target 'all' for x64-linux-dbg
+-- Making target 'install' for x64-linux-dbg
+-- Building/Installing x64-linux-rel
+-- Making target 'all' for x64-linux-rel
+-- Making target 'install' for x64-linux-rel
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/libxcrypt_x64-linux/lib/pkgconfig/libcrypt.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/libxcrypt_x64-linux/lib/pkgconfig/libxcrypt.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/libxcrypt_x64-linux/debug/lib/pkgconfig/libcrypt.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/libxcrypt_x64-linux/debug/lib/pkgconfig/libxcrypt.pc
+-- Performing post-build validation
+Starting submission of libxcrypt:x64-linux@4.4.38#1 to 1 binary cache(s) in the background
+Elapsed time to handle libxcrypt:x64-linux: 44 s
+libxcrypt:x64-linux package ABI: 222d29024f4202d884ff5755c4b89b686fe5f76f62b69c77db38434d80d3db38
+Completed submission of vcpkg-make:x64-linux@2025-09-14 to 1 binary cache(s) in 24.7 ms
+Installing 34/47 libmount:x64-linux@2.40...
+Building libmount:x64-linux@2.40...
+Downloading https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.40/util-linux-2.40.tar.xz -> util-linux-2.40.tar.xz
+Successfully downloaded util-linux-2.40.tar.xz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/util-linux-2.40.tar.xz
+-- Applying patch hide-private-symbols.diff
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/libmount/src/2.40-b5c733b07e.clean
+-- Getting CMake variables for x64-linux-dbg
+-- Getting CMake variables for x64-linux-rel
+-- Generating configure for x64-linux
+-- Finished generating configure for x64-linux
+-- Configuring x64-linux-dbg
+-- Configuring x64-linux-rel
+-- Building x64-linux-dbg
+-- Installing x64-linux-dbg
+-- Building x64-linux-rel
+-- Installing x64-linux-rel
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/libmount_x64-linux/lib/pkgconfig/blkid.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/libmount_x64-linux/lib/pkgconfig/mount.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/libmount_x64-linux/debug/lib/pkgconfig/blkid.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/libmount_x64-linux/debug/lib/pkgconfig/mount.pc
+-- Performing post-build validation
+Starting submission of libmount:x64-linux@2.40 to 1 binary cache(s) in the background
+Elapsed time to handle libmount:x64-linux: 2 min
+libmount:x64-linux package ABI: fe76057f5e1a044e2e8f51f25baa7773799d8f4e971c65fa24924b9315d455c0
+Completed submission of libxcrypt:x64-linux@4.4.38#1 to 1 binary cache(s) in 132 ms
+Installing 35/47 libcap:x64-linux@2.73#1...
+Building libcap:x64-linux@2.73#1...
+Downloading libcap-2.73.tar.xz, trying https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.73.tar.xz
+Successfully downloaded libcap-2.73.tar.xz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/libcap-2.73.tar.xz
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/libcap/src/libcap-2-2049950211.clean
+-- Getting CMake variables for x64-linux
+-- Loading CMake variables from /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/libcap/cmake-get-vars_C_CXX-x64-linux.cmake.log
+-- Configuring x64-linux-dbg
+-- Configuring x64-linux-rel
+-- Building/Installing x64-linux-dbg
+-- Making target 'all' for x64-linux-dbg
+-- Making target 'install' for x64-linux-dbg
+-- Building/Installing x64-linux-rel
+-- Making target 'all' for x64-linux-rel
+-- Making target 'install' for x64-linux-rel
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/libcap_x64-linux/lib/pkgconfig/libcap.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/libcap_x64-linux/lib/pkgconfig/libpsx.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/libcap_x64-linux/debug/lib/pkgconfig/libcap.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/libcap_x64-linux/debug/lib/pkgconfig/libpsx.pc
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/libcap_x64-linux/share/libcap/copyright
+-- Performing post-build validation
+Starting submission of libcap:x64-linux@2.73#1 to 1 binary cache(s) in the background
+Elapsed time to handle libcap:x64-linux: 4.4 s
+libcap:x64-linux package ABI: 699d850a250c415a6fe1ec979eee21a66059a21ce660f6781dbb59e110fba14e
+Completed submission of libmount:x64-linux@2.40 to 1 binary cache(s) in 557 ms
+Installing 36/47 gperf:x64-linux@3.3...
+Building gperf:x64-linux@3.3...
+Downloading gperf-3.3.tar.gz, trying https://ftpmirror.gnu.org/gnu/gperf/gperf-3.3.tar.gz
+Successfully downloaded gperf-3.3.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/gperf-3.3.tar.gz
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/gperf/src/gperf-3-b814f52c10.clean
+-- Getting CMake variables for x64-linux
+-- Loading CMake variables from /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/gperf/cmake-get-vars_C_CXX-x64-linux.cmake.log
+-- Generating configure for x64-linux
+-- Finished generating configure for x64-linux
+-- Configuring x64-linux-rel
+-- Building/Installing x64-linux-rel
+-- Making target 'all' for x64-linux-rel
+-- Making target 'install' for x64-linux-rel
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/gperf_x64-linux/share/gperf/copyright
+-- Adjusted RPATH of '/home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/gperf_x64-linux/tools/gperf/gperf' (From '' -> To '$ORIGIN:$ORIGIN/../../lib')
+-- Performing post-build validation
+Starting submission of gperf:x64-linux@3.3 to 1 binary cache(s) in the background
+Elapsed time to handle gperf:x64-linux: 42 s
+gperf:x64-linux package ABI: 2f7a390dd9c9af1ce15d4c48eb5eed13e5fc7c2e404b800de9bee8cc11b2aace
+Completed submission of libcap:x64-linux@2.73#1 to 1 binary cache(s) in 37.3 ms
+Installing 37/47 libsystemd:x64-linux@257.8...
+Building libsystemd:x64-linux@257.8...
+-- Found Python version '3.14.0 at /usr/bin/python3'
+-- Using meson: /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/tools/meson-1.9.0-7310ba/meson.py
+Downloading https://github.com/systemd/systemd/archive/v257.8.tar.gz -> systemd-systemd-v257.8.tar.gz
+Successfully downloaded systemd-systemd-v257.8.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/systemd-systemd-v257.8.tar.gz
+-- Applying patch disable-warning-nonnull.patch
+-- Applying patch only-libsystemd.patch
+-- Applying patch pkgconfig.patch
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/libsystemd/src/v257.8-231b365f90.clean
+-- Configuring x64-linux-dbg
+-- Getting CMake variables for x64-linux
+-- Loading CMake variables from /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/libsystemd/cmake-get-vars_C_CXX-x64-linux.cmake.log
+-- Configuring x64-linux-dbg done
+-- Configuring x64-linux-rel
+-- Configuring x64-linux-rel done
+-- Package x64-linux-dbg
+-- Package x64-linux-rel
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/libsystemd_x64-linux/lib/pkgconfig/libsystemd.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/libsystemd_x64-linux/debug/lib/pkgconfig/libsystemd.pc
+-- Performing post-build validation
+Starting submission of libsystemd:x64-linux@257.8 to 1 binary cache(s) in the background
+Elapsed time to handle libsystemd:x64-linux: 1.2 min
+libsystemd:x64-linux package ABI: 707fe121b85cfc8f8dc2f19452658af97bca22e3f1fcd0b49a1d1d9b73c01950
+Completed submission of gperf:x64-linux@3.3 to 1 binary cache(s) in 41.9 ms
+Installing 38/47 expat:x64-linux@2.7.1...
+Building expat:x64-linux@2.7.1...
+Downloading https://github.com/libexpat/libexpat/archive/R_2_7_1.tar.gz -> libexpat-libexpat-R_2_7_1.tar.gz
+Successfully downloaded libexpat-libexpat-R_2_7_1.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/libexpat-libexpat-R_2_7_1.tar.gz
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/expat/src/R_2_7_1-4bba8bb538.clean
+-- Configuring x64-linux
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/expat_x64-linux/lib/pkgconfig/expat.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/expat_x64-linux/debug/lib/pkgconfig/expat.pc
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/expat_x64-linux/share/expat/copyright
+-- Performing post-build validation
+Starting submission of expat:x64-linux@2.7.1 to 1 binary cache(s) in the background
+Elapsed time to handle expat:x64-linux: 13 s
+expat:x64-linux package ABI: c485204065cf191e079657613ab99c209adff68bafa48abde0ee9dc1826e8bdf
+Completed submission of libsystemd:x64-linux@257.8 to 1 binary cache(s) in 1.3 s
+Installing 39/47 dbus[core,systemd]:x64-linux@1.16.2#2...
+Building dbus[core,systemd]:x64-linux@1.16.2#2...
+-- Note: dbus only supports dynamic library linkage. Building dynamic library.
+Downloading https://gitlab.freedesktop.org//dbus/dbus/-/archive/dbus-1.16.2/dbus-dbus-1.16.2.tar.gz -> dbus-dbus-dbus-1.16.2.tar.gz
+Successfully downloaded dbus-dbus-dbus-1.16.2.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/dbus-dbus-dbus-1.16.2.tar.gz
+-- Applying patch cmake.dep.patch
+-- Applying patch pkgconfig.patch
+-- Applying patch getpeereid.patch
+-- Applying patch libsystemd.patch
+-- Applying patch remove-path.patch
+-- Applying patch remove-var-lib-dbus-creation.patch
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/dbus/src/bus-1.16.2-02a7b61930.clean
+-- Configuring x64-linux
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/dbus_x64-linux/lib/pkgconfig/dbus-1.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/dbus_x64-linux/debug/lib/pkgconfig/dbus-1.pc
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/dbus_x64-linux/share/dbus/copyright
+-- Adjusted RPATH of '/home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/dbus_x64-linux/debug/lib/libdbus-1.so.3.38.3' (From '' -> To '$ORIGIN')
+-- Adjusted RPATH of '/home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/dbus_x64-linux/debug/libexec/dbus-daemon-launch-helper' (From '' -> To '$ORIGIN:$ORIGIN/../lib')
+-- Adjusted RPATH of '/home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/dbus_x64-linux/debug/tools/dbus/dbus-cleanup-sockets' (From '' -> To '$ORIGIN:$ORIGIN/../../lib')
+-- Adjusted RPATH of '/home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/dbus_x64-linux/debug/tools/dbus/dbus-daemon' (From '' -> To '$ORIGIN:$ORIGIN/../../lib')
+-- Adjusted RPATH of '/home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/dbus_x64-linux/debug/tools/dbus/dbus-launch' (From '' -> To '$ORIGIN:$ORIGIN/../../lib')
+-- Adjusted RPATH of '/home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/dbus_x64-linux/debug/tools/dbus/dbus-monitor' (From '' -> To '$ORIGIN:$ORIGIN/../../lib')
+-- Adjusted RPATH of '/home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/dbus_x64-linux/debug/tools/dbus/dbus-run-session' (From '' -> To '$ORIGIN:$ORIGIN/../../lib')
+-- Adjusted RPATH of '/home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/dbus_x64-linux/debug/tools/dbus/dbus-send' (From '' -> To '$ORIGIN:$ORIGIN/../../lib')
+-- Adjusted RPATH of '/home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/dbus_x64-linux/debug/tools/dbus/dbus-test-tool' (From '' -> To '$ORIGIN:$ORIGIN/../../lib')
+-- Adjusted RPATH of '/home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/dbus_x64-linux/debug/tools/dbus/dbus-update-activation-environment' (From '' -> To '$ORIGIN:$ORIGIN/../../lib')
+-- Adjusted RPATH of '/home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/dbus_x64-linux/debug/tools/dbus/dbus-uuidgen' (From '' -> To '$ORIGIN:$ORIGIN/../../lib')
+-- Adjusted RPATH of '/home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/dbus_x64-linux/lib/libdbus-1.so.3.38.3' (From '' -> To '$ORIGIN')
+-- Adjusted RPATH of '/home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/dbus_x64-linux/libexec/dbus-daemon-launch-helper' (From '' -> To '$ORIGIN:$ORIGIN/../lib')
+-- Adjusted RPATH of '/home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/dbus_x64-linux/tools/dbus/dbus-cleanup-sockets' (From '' -> To '$ORIGIN:$ORIGIN/../../lib')
+-- Adjusted RPATH of '/home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/dbus_x64-linux/tools/dbus/dbus-daemon' (From '' -> To '$ORIGIN:$ORIGIN/../../lib')
+-- Adjusted RPATH of '/home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/dbus_x64-linux/tools/dbus/dbus-launch' (From '' -> To '$ORIGIN:$ORIGIN/../../lib')
+-- Adjusted RPATH of '/home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/dbus_x64-linux/tools/dbus/dbus-monitor' (From '' -> To '$ORIGIN:$ORIGIN/../../lib')
+-- Adjusted RPATH of '/home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/dbus_x64-linux/tools/dbus/dbus-run-session' (From '' -> To '$ORIGIN:$ORIGIN/../../lib')
+-- Adjusted RPATH of '/home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/dbus_x64-linux/tools/dbus/dbus-send' (From '' -> To '$ORIGIN:$ORIGIN/../../lib')
+-- Adjusted RPATH of '/home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/dbus_x64-linux/tools/dbus/dbus-test-tool' (From '' -> To '$ORIGIN:$ORIGIN/../../lib')
+-- Adjusted RPATH of '/home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/dbus_x64-linux/tools/dbus/dbus-update-activation-environment' (From '' -> To '$ORIGIN:$ORIGIN/../../lib')
+-- Adjusted RPATH of '/home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/dbus_x64-linux/tools/dbus/dbus-uuidgen' (From '' -> To '$ORIGIN:$ORIGIN/../../lib')
+-- Performing post-build validation
+Starting submission of dbus[core,systemd]:x64-linux@1.16.2#2 to 1 binary cache(s) in the background
+Elapsed time to handle dbus:x64-linux: 58 s
+dbus:x64-linux package ABI: 36923dd584dd82d75ea2a711529aa4bf4f3286d125ebe731b784e4c2ccf92f10
+Completed submission of expat:x64-linux@2.7.1 to 1 binary cache(s) in 114 ms
+Installing 40/47 sdl3[core,ibus,wayland,x11]:x64-linux@3.2.22...
+Building sdl3[core,ibus,wayland,x11]:x64-linux@3.2.22...
+Downloading https://github.com/libsdl-org/SDL/archive/release-3.2.22.tar.gz -> libsdl-org-SDL-release-3.2.22.tar.gz
+Successfully downloaded libsdl-org-SDL-release-3.2.22.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/libsdl-org-SDL-release-3.2.22.tar.gz
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/sdl3/src/ase-3.2.22-cadcb17138.clean
+CMake Warning at buildtrees/versioning_/versions/sdl3/ef1517d02481885e951bcb8aee2e41d7cec6c2ab/portfile.cmake:23 (message):
+  You will need to install Xorg dependencies to use feature x11:
+
+  sudo apt install libx11-dev libxft-dev libxext-dev
+
+Call Stack (most recent call first):
+  scripts/ports.cmake:206 (include)
+
+
+CMake Warning at buildtrees/versioning_/versions/sdl3/ef1517d02481885e951bcb8aee2e41d7cec6c2ab/portfile.cmake:26 (message):
+  You will need to install Wayland dependencies to use feature wayland:
+
+  sudo apt install libwayland-dev libxkbcommon-dev libegl1-mesa-dev
+
+Call Stack (most recent call first):
+  scripts/ports.cmake:206 (include)
+
+
+CMake Warning at buildtrees/versioning_/versions/sdl3/ef1517d02481885e951bcb8aee2e41d7cec6c2ab/portfile.cmake:29 (message):
+  You will need to install ibus dependencies to use feature ibus:
+
+  sudo apt install libibus-1.0-dev
+
+Call Stack (most recent call first):
+  scripts/ports.cmake:206 (include)
+
+
+-- Configuring x64-linux
+CMake Warning at /home/pols/Coding/LoopieEngine/vendor/vcpkg_cache/Release/x64-linux/share/vcpkg-cmake/vcpkg_cmake_configure.cmake:344 (message):
+  The following variables are not used in CMakeLists.txt:
+
+      SDL_UNIX_CONSOLE_BUILD
+
+  Please recheck them and remove the unnecessary options from the
+  `vcpkg_cmake_configure` call.
+
+  If these options should still be passed for whatever reason, please use the
+  `MAYBE_UNUSED_VARIABLES` argument.
+Call Stack (most recent call first):
+  buildtrees/versioning_/versions/sdl3/ef1517d02481885e951bcb8aee2e41d7cec6c2ab/portfile.cmake:37 (vcpkg_cmake_configure)
+  scripts/ports.cmake:206 (include)
+
+
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/sdl3_x64-linux/lib/pkgconfig/sdl3.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/sdl3_x64-linux/debug/lib/pkgconfig/sdl3.pc
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/sdl3_x64-linux/share/sdl3/usage
+-- Performing post-build validation
+Starting submission of sdl3[core,ibus,wayland,x11]:x64-linux@3.2.22 to 1 binary cache(s) in the background
+Elapsed time to handle sdl3:x64-linux: 1.9 min
+sdl3:x64-linux package ABI: e3903d3100761078c229c830c922cac47c7bde49ec36a813e92a13a7b4afbadb
+Completed submission of dbus[core,systemd]:x64-linux@1.16.2#2 to 1 binary cache(s) in 1.5 s
+Installing 41/47 imgui[core,docking-experimental,opengl3-binding,sdl3-binding]:x64-linux@1.91.9...
+Building imgui[core,docking-experimental,opengl3-binding,sdl3-binding]:x64-linux@1.91.9...
+Downloading https://github.com/ocornut/imgui/archive/v1.91.9-docking.tar.gz -> ocornut-imgui-v1.91.9-docking.tar.gz
+Successfully downloaded ocornut-imgui-v1.91.9-docking.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/ocornut-imgui-v1.91.9-docking.tar.gz
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/imgui/src/.9-docking-449e592d6e.clean
+-- Configuring x64-linux
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/imgui_x64-linux/share/imgui/copyright
+-- Performing post-build validation
+Starting submission of imgui[core,docking-experimental,opengl3-binding,sdl3-binding]:x64-linux@1.91.9 to 1 binary cache(s) in the background
+Elapsed time to handle imgui:x64-linux: 32 s
+imgui:x64-linux package ABI: 89cb7e3f3151e282890bd4c1a696be3520c87321e1cb9c98244d3edf8c7dced3
+Completed submission of sdl3[core,ibus,wayland,x11]:x64-linux@3.2.22 to 1 binary cache(s) in 2.6 s
+Installing 42/47 imguizmo:x64-linux@2024-05-29#1...
+Building imguizmo:x64-linux@2024-05-29#1...
+Downloading https://github.com/CedricGuillemet/ImGuizmo/archive/ba662b119d64f9ab700bb2cd7b2781f9044f5565.tar.gz -> CedricGuillemet-ImGuizmo-ba662b119d64f9ab700bb2cd7b2781f9044f5565.tar.gz
+Successfully downloaded CedricGuillemet-ImGuizmo-ba662b119d64f9ab700bb2cd7b2781f9044f5565.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/CedricGuillemet-ImGuizmo-ba662b119d64f9ab700bb2cd7b2781f9044f5565.tar.gz
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/imguizmo/src/f9044f5565-589575987f.clean
+-- Configuring x64-linux
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/imguizmo_x64-linux/share/imguizmo/copyright
+-- Performing post-build validation
+Starting submission of imguizmo:x64-linux@2024-05-29#1 to 1 binary cache(s) in the background
+Elapsed time to handle imguizmo:x64-linux: 11 s
+imguizmo:x64-linux package ABI: 7165cf160d90e45e6e1c7b77d72f8c497e75ab6f996de1d3cd3c5a9ce605b93f
+Completed submission of imgui[core,docking-experimental,opengl3-binding,sdl3-binding]:x64-linux@1.91.9 to 1 binary cache(s) in 939 ms
+Installing 43/47 nativefiledialog-extended:x64-linux@1.2.1...
+Building nativefiledialog-extended:x64-linux@1.2.1...
+Downloading https://github.com/btzy/nativefiledialog-extended/archive/v1.2.1.tar.gz -> btzy-nativefiledialog-extended-v1.2.1.tar.gz
+Successfully downloaded btzy-nativefiledialog-extended-v1.2.1.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/btzy-nativefiledialog-extended-v1.2.1.tar.gz
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/nativefiledialog-extended/src/v1.2.1-cc6e94d641.clean
+-- Configuring x64-linux
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/nativefiledialog-extended_x64-linux/share/nativefiledialog-extended/copyright
+-- Performing post-build validation
+Starting submission of nativefiledialog-extended:x64-linux@1.2.1 to 1 binary cache(s) in the background
+Elapsed time to handle nativefiledialog-extended:x64-linux: 5.8 s
+nativefiledialog-extended:x64-linux package ABI: bef29e905ee1a802b5c856dcfe17d225ac57c2ba0cbf5f89ba8a78967b9e99fc
+Completed submission of imguizmo:x64-linux@2024-05-29#1 to 1 binary cache(s) in 273 ms
+Installing 44/47 nlohmann-json:x64-linux@3.12.0#1...
+Building nlohmann-json:x64-linux@3.12.0#1...
+Downloading https://github.com/nlohmann/json/archive/v3.12.0.tar.gz -> nlohmann-json-v3.12.0.tar.gz
+Successfully downloaded nlohmann-json-v3.12.0.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/nlohmann-json-v3.12.0.tar.gz
+-- Applying patch fix-4742_std_optional.patch
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/nlohmann-json/src/v3.12.0-087f34fe5c.clean
+-- Configuring x64-linux
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/nlohmann-json_x64-linux/share/pkgconfig/nlohmann_json.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/nlohmann-json_x64-linux/debug/share/pkgconfig/nlohmann_json.pc
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/nlohmann-json_x64-linux/share/nlohmann-json/copyright
+-- Performing post-build validation
+Starting submission of nlohmann-json:x64-linux@3.12.0#1 to 1 binary cache(s) in the background
+Elapsed time to handle nlohmann-json:x64-linux: 5.2 s
+nlohmann-json:x64-linux package ABI: 698edfa83785b2553d66ae22737dc0ae6f26b5b418d574e18d9256aced4050fa
+Completed submission of nativefiledialog-extended:x64-linux@1.2.1 to 1 binary cache(s) in 23.6 ms
+Installing 45/47 opengl:x64-linux@2022-12-04#3...
+Building opengl:x64-linux@2022-12-04#3...
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/opengl_x64-linux/share/opengl/usage
+-- Skipping post-build validation due to VCPKG_POLICY_EMPTY_PACKAGE
+Starting submission of opengl:x64-linux@2022-12-04#3 to 1 binary cache(s) in the background
+Elapsed time to handle opengl:x64-linux: 111 ms
+opengl:x64-linux package ABI: 4212684262d5a144eeb28f660763a630554f7fb2cf5675de1ce5e852bdb0e82d
+Completed submission of nlohmann-json:x64-linux@3.12.0#1 to 1 binary cache(s) in 103 ms
+Installing 46/47 fmt:x64-linux@11.2.0...
+Building fmt:x64-linux@11.2.0...
+Downloading https://github.com/fmtlib/fmt/archive/11.2.0.tar.gz -> fmtlib-fmt-11.2.0.tar.gz
+Successfully downloaded fmtlib-fmt-11.2.0.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/fmtlib-fmt-11.2.0.tar.gz
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/fmt/src/11.2.0-c4b53d7675.clean
+-- Configuring x64-linux
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/fmt_x64-linux/lib/pkgconfig/fmt.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/fmt_x64-linux/debug/lib/pkgconfig/fmt.pc
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/fmt_x64-linux/share/fmt/usage
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/fmt_x64-linux/share/fmt/copyright
+-- Performing post-build validation
+Starting submission of fmt:x64-linux@11.2.0 to 1 binary cache(s) in the background
+Elapsed time to handle fmt:x64-linux: 15 s
+fmt:x64-linux package ABI: dfa50abab1e6e6be0deee41c5568a7d19cd0a61351bb0e82887376094c264576
+Completed submission of opengl:x64-linux@2022-12-04#3 to 1 binary cache(s) in 9.41 ms
+Installing 47/47 spdlog:x64-linux@1.15.3...
+Building spdlog:x64-linux@1.15.3...
+Downloading https://github.com/gabime/spdlog/archive/v1.15.3.tar.gz -> gabime-spdlog-v1.15.3.tar.gz
+Successfully downloaded gabime-spdlog-v1.15.3.tar.gz
+-- Extracting source /home/pols/Coding/LoopieEngine/vendor/vcpkg/downloads/gabime-spdlog-v1.15.3.tar.gz
+-- Using source at /home/pols/Coding/LoopieEngine/vendor/vcpkg/buildtrees/spdlog/src/v1.15.3-425e0a81aa.clean
+-- Configuring x64-linux
+-- Building x64-linux-dbg
+-- Building x64-linux-rel
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/spdlog_x64-linux/lib/pkgconfig/spdlog.pc
+-- Fixing pkgconfig file: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/spdlog_x64-linux/debug/lib/pkgconfig/spdlog.pc
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/spdlog_x64-linux/share/spdlog/usage
+-- Installing: /home/pols/Coding/LoopieEngine/vendor/vcpkg/packages/spdlog_x64-linux/share/spdlog/copyright
+-- Performing post-build validation
+Starting submission of spdlog:x64-linux@1.15.3 to 1 binary cache(s) in the background
+Elapsed time to handle spdlog:x64-linux: 28 s
+spdlog:x64-linux package ABI: ac45c6e5b38b9ca8526968fe07eecae4b33c780b67e7cf2b45c515c2b0eb7e7f
+Installed contents are licensed to you by owners. Microsoft is not responsible for, nor does it grant any licenses to, third-party packages.
+Some packages did not declare an SPDX license. Check the `copyright` file for each package for more information about their licensing.
+Packages installed in this vcpkg installation declare the following licenses:
+(AFL-2.1 OR GPL-2.0-or-later)
+(BSD-3-Clause OR GPL-2.0-only)
+(MIT OR CC-PDDC)
+Apache-2.0
+BSD-2-Clause
+BSD-3-Clause
+BSL-1.0
+GPL-3.0-or-later
+MIT
+Zlib
+libpng-2.0
+libtiff
+assimp provides CMake targets:
+
+  # this is heuristically generated, and may not be correct
+  find_package(assimp CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE assimp::assimp)
+
+assimp provides pkg-config modules:
+
+  # Import various well-known 3D model formats in an uniform manner.
+  assimp
+
+devil provides pkg-config modules:
+
+  # Developer's Image Library - IL part (just image load/save)
+  IL
+
+  # Developer's Image Library - ILU part (image library utilities)
+  ILU
+
+  # Developer's Image Library - ILUT part (connection to higher level libraries)
+  ILUT
+
+glad provides CMake targets:
+
+  # this is heuristically generated, and may not be correct
+  find_package(glad CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE glad::glad)
+
+The package glm provides CMake targets:
+
+    find_package(glm CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE glm::glm)
+
+    # Or use the header-only version
+    find_package(glm CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE glm::glm-header-only)
+
+lz4 provides CMake targets:
+
+  find_package(lz4 CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE lz4::lz4)
+
+lz4 provides pkg-config modules:
+
+  liblz4
+
+sdl3 provides CMake targets:
+
+  find_package(SDL3 CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE SDL3::SDL3)
+
+imgui provides CMake targets:
+
+  # this is heuristically generated, and may not be correct
+  find_package(imgui CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE imgui::imgui)
+
+imguizmo provides CMake targets:
+
+  # this is heuristically generated, and may not be correct
+  find_package(imguizmo CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE imguizmo::imguizmo)
+
+nativefiledialog-extended provides CMake targets:
+
+  # this is heuristically generated, and may not be correct
+  find_package(nfd CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE nfd::nfd)
+
+The package nlohmann-json provides CMake targets:
+
+    find_package(nlohmann_json CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE nlohmann_json::nlohmann_json)
+
+The package nlohmann-json can be configured to not provide implicit conversions via a custom triplet file:
+
+    set(nlohmann-json_IMPLICIT_CONVERSIONS OFF)
+
+For more information, see the docs here:
+    
+    https://json.nlohmann.me/api/macros/json_use_implicit_conversions/
+
+The package opengl is compatible with built-in CMake targets via CMake v3.7 and prior syntax
+
+    find_package(OpenGL REQUIRED)
+    target_link_libraries(main PRIVATE ${OPENGL_LIBRARIES})
+    target_include_directories(main PRIVATE ${OPENGL_INCLUDE_DIR})
+
+and the CMake v3.8 and beyond imported target syntax
+
+    find_package(OpenGL REQUIRED)
+    target_link_libraries(main PRIVATE OpenGL::GL)
+
+introduction of various components
+
+    find_package(OpenGL REQUIRED COMPONENTS GL      # v3.8
+                                            GLU     # v3.8
+                                            GLX     # v3.10
+                                            EGL     # v3.10
+                                            OpenGL) # v3.10
+
+The OpenGL SDK is highly platform dependent and is usually an OS component. It's not realistic to build from source for every platform.
+
+    WINDOWS: is part of the Windows SDK which this package installs.
+    LINUX: the SDK may be installed from your distro's repo or from 3rd parties manually. There are too many to count.
+    APPLE: consult your distribution vendor on the state of OpenGL support: https://support.apple.com/en-us/HT202823
+
+The package spdlog provides CMake targets:
+
+    find_package(spdlog CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE spdlog::spdlog)
+
+    # Or use the header-only version
+    find_package(spdlog CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE spdlog::spdlog_header_only)
+
+Completed submission of fmt:x64-linux@11.2.0 to 1 binary cache(s) in 167 ms
+Waiting for 1 remaining binary cache submissions...
+Completed submission of spdlog:x64-linux@1.15.3 to 1 binary cache(s) in 917 ms (1/1)
+All requested installations completed successfully in: 28 min
+-- Running vcpkg install - done
+-- The C compiler identification is GNU 15.2.1
+-- The CXX compiler identification is GNU 15.2.1
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+CMake Warning (dev) at /usr/share/cmake/Modules/FindOpenGL.cmake:415 (message):
+  Policy CMP0072 is not set: FindOpenGL prefers GLVND by default when
+  available.  Run "cmake --help-policy CMP0072" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+
+  FindOpenGL found both a legacy GL library:
+
+    OPENGL_gl_LIBRARY: /usr/lib64/libGL.so
+
+  and GLVND libraries for OpenGL and GLX:
+
+    OPENGL_opengl_LIBRARY: /usr/lib64/libOpenGL.so
+    OPENGL_glx_LIBRARY: /usr/lib64/libGLX.so
+
+  OpenGL_GL_PREFERENCE has not been set to "GLVND" or "LEGACY", so for
+  compatibility with CMake 3.10 and below the legacy GL library will be used.
+Call Stack (most recent call first):
+  vendor/vcpkg/scripts/buildsystems/vcpkg.cmake:908 (_find_package)
+  Loopie/CMakeLists.txt:19 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Found OpenGL: /usr/lib64/libOpenGL.so
+-- Found nlohmann_json: /home/pols/Coding/LoopieEngine/vendor/vcpkg_cache/Release/x64-linux/share/nlohmann_json/nlohmann_jsonConfig.cmake (found version "3.12.0")
+-- Found ZLIB: optimized;/home/pols/Coding/LoopieEngine/vendor/vcpkg_cache/Release/x64-linux/lib/libz.a;debug;/home/pols/Coding/LoopieEngine/vendor/vcpkg_cache/Release/x64-linux/debug/lib/libz.a (found version "1.3.1")
+-- Found Stb: /home/pols/Coding/LoopieEngine/vendor/vcpkg_cache/Release/x64-linux/include
+-- Found DevIL: /home/pols/Coding/LoopieEngine/vendor/vcpkg_cache/Release/x64-linux/lib/libIL.a
+-- Found JPEG: optimized;/home/pols/Coding/LoopieEngine/vendor/vcpkg_cache/Release/x64-linux/lib/libjpeg.a;debug;/home/pols/Coding/LoopieEngine/vendor/vcpkg_cache/Release/x64-linux/debug/lib/libjpeg.a (found version "62")
+-- Found Jasper: optimized;/home/pols/Coding/LoopieEngine/vendor/vcpkg_cache/Release/x64-linux/lib/libjasper.a;debug;/home/pols/Coding/LoopieEngine/vendor/vcpkg_cache/Release/x64-linux/debug/lib/libjasperd.a (found version "4.2.8")
+-- Found PNG: optimized;/home/pols/Coding/LoopieEngine/vendor/vcpkg_cache/Release/x64-linux/lib/libpng16.a;debug;/home/pols/Coding/LoopieEngine/vendor/vcpkg_cache/Release/x64-linux/debug/lib/libpng16d.a (found version "1.6.50")
+-- Found TIFF: optimized;/home/pols/Coding/LoopieEngine/vendor/vcpkg_cache/Release/x64-linux/lib/libtiff.a;debug;/home/pols/Coding/LoopieEngine/vendor/vcpkg_cache/Release/x64-linux/debug/lib/libtiffd.a (found version "4.7.0")
+-- Found LibLZMA: optimized;/home/pols/Coding/LoopieEngine/vendor/vcpkg_cache/Release/x64-linux/lib/liblzma.a;debug;/home/pols/Coding/LoopieEngine/vendor/vcpkg_cache/Release/x64-linux/debug/lib/liblzma.a (found version "5.8.1")
+-- Configuring done (1678.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/pols/Coding/LoopieEngine/build/Release

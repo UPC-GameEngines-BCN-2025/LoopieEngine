@@ -5,6 +5,7 @@
 
 #include "Loopie/_ExternalsCompat/nfd_sdl3.h"
 #include <nfd.h>
+#include <cstddef>
 
 
 /// Testing

@@ -7,6 +7,7 @@
 
 #include <unordered_map>
 #include <memory>
+#include <cstddef>
 
 namespace Loopie {
 
@@ -15,13 +16,13 @@ namespace Loopie {
         int index = 0;
 
         bool operator==(const ResourceKey& other) const noexcept {
-            return metadata.UUID == other.metadata.UUID && index == other.index;
+            return metadata.uuid == other.metadata.uuid && index == other.index;
         }
     };
 
     struct ResourceKeyHash {
         std::size_t operator()(const ResourceKey& key) const noexcept {
-            return std::hash<UUID>()(key.metadata.UUID) ^ (std::hash<int>()(key.index) << 1);
+            return std::hash<UUID>()(key.metadata.uuid) ^ (std::hash<int>()(key.index) << 1);
         }
     };
 

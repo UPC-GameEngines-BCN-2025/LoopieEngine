@@ -25,7 +25,7 @@ namespace Loopie {
 			return;
 		}
 
-		ProcessNode(scene->mRootNode, scene, metadata.CachesPath);
+		ProcessNode(scene->mRootNode, scene, metadata.cachesPath);
 
 		metadata.HasCache = true;
 		MetadataRegistry::SaveMetadata(filepath, metadata);

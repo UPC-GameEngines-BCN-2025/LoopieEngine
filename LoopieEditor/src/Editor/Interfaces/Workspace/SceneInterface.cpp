@@ -15,6 +15,7 @@
 
 #include <imgui.h>
 #include <ImGuizmo.h>
+#include <cstddef>
 
 namespace Loopie {
 	SceneInterface::SceneInterface() {
@@ -171,7 +172,7 @@ namespace Loopie {
 		MeshImporter::ImportModel(modelPath, meta);
 		std::shared_ptr<Entity> parent;
 
-		for (size_t i = 0; i < meta.CachesPath.size(); i++)
+		for (size_t i = 0; i < meta.cachesPath.size(); i++)
 		{
 			
 			std::shared_ptr<Mesh> mesh = ResourceManager::GetMesh(meta, (int)i);

@@ -10,7 +10,7 @@ namespace Loopie {
             return std::static_pointer_cast<Texture>(resource);
         }
 
-        auto texture = std::make_shared<Texture>(metadata.UUID);
+        auto texture = std::make_shared<Texture>(metadata.uuid);
         m_Resources[key] = texture;
         return texture;
     }
@@ -22,7 +22,7 @@ namespace Loopie {
             return std::static_pointer_cast<Mesh>(resource);
         }
 
-        auto mesh = std::make_shared<Mesh>(metadata.UUID, index);
+        auto mesh = std::make_shared<Mesh>(metadata.uuid, index);
         m_Resources[key] = mesh;
         return mesh;
     }

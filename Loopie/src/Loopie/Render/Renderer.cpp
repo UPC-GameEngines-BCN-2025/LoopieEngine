@@ -16,8 +16,8 @@ namespace Loopie {
 	std::vector<Camera*> Renderer::s_renderCameras = std::vector<Camera*>();
 	std::shared_ptr<UniformBuffer> Renderer::s_matricesUniformBuffer = nullptr;
 
-	void Renderer::Init(void* context) {
-		ASSERT(!gladLoadGLLoader((GLADloadproc)context), "Failed to Initialize GLAD!");
+	void Renderer::Init(GLLoader getProcAddress) {
+		ASSERT(!gladLoadGLLoader((GLADloadproc)getProcAddress), "Failed to Initialize GLAD!");
 
 		glEnable(GL_BLEND);
 		EnableDepth();
@@ -36,9 +36,11 @@ namespace Loopie {
 		BufferLayout layout;
 		layout.AddLayoutElement(0, GLVariableType::MATRIX4, 1, "View");
 		layout.AddLayoutElement(1, GLVariableType::MATRIX4, 1, "Proj");
+
 		s_matricesUniformBuffer = std::make_shared<UniformBuffer>(layout);
 		s_matricesUniformBuffer->BindToLayout(0);
 	}
+
 
 	void Renderer::Shutdown() {
 		ilShutDown();
@@ -103,8 +105,8 @@ namespace Loopie {
 		for (const RenderItem& item : s_RenderQueue) {
 			
 			item.VAO->Bind();
-			item.Material->Bind();
-			SetRenderUniforms(item.Material, item.Transform);
+			item.material->Bind();
+			SetRenderUniforms(item.material, item.transform);
 			glDrawElements(GL_TRIANGLES, item.IndexCount, GL_UNSIGNED_INT, nullptr);
 			item.VAO->Unbind();
 		}

@@ -8,13 +8,14 @@
 
 #include <iomanip>
 #include <sstream>
-#include <ctime>   
+#include <ctime>
+#include <vector>   
 
 namespace Loopie {
 
     struct Metadata {
-        UUID UUID;
-        std::vector<std::string> CachesPath;
+        UUID uuid;
+        std::vector<std::string> cachesPath;
 
         bool HasCache = false;
         bool IsOutdated = false;

@@ -11,32 +11,40 @@
 namespace Loopie {
 	Window::Window()
 	{
-		// PSTODO: Ask if we will get the SDL error message like this
-		// PSTODO: Verify if ASSERT works like this
-		ASSERT(!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_GAMEPAD | SDL_INIT_EVENTS), "SDL_VIDEO could not initialize! SDL_Error: {0}", SDL_GetError());
+		ASSERT(!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_GAMEPAD | SDL_INIT_EVENTS), 
+	        "SDL_VIDEO could not initialize! SDL_Error: {0}", SDL_GetError());
+
+    		// Set GL attributes BEFORE creating window
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
+		SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
 		int width = WINDOW_DEFAULT_WIDTH;
 		int height = WINDOW_DEFAULT_HEIGHT;
 
-		const SDL_DisplayMode* display = SDL_GetCurrentDisplayMode(1);
-		if (display) {
-			if (display->w < WINDOW_DEFAULT_WIDTH || display->h < WINDOW_DEFAULT_HEIGHT) {
-				width = WINDOW_SMALL_DEFAULT_WIDTH;
-				height = WINDOW_SMALL_DEFAULT_HEIGHT;
+		const SDL_DisplayMode* display = SDL_GetCurrentDisplayMode(SDL_GetPrimaryDisplay());
+		if (display) 
+		{
+	        	if (display->w < WINDOW_DEFAULT_WIDTH || display->h < WINDOW_DEFAULT_HEIGHT) 
+			{
+        	    		width = WINDOW_SMALL_DEFAULT_WIDTH;
+	            		height = WINDOW_SMALL_DEFAULT_HEIGHT;
 			}
-		}
+	    	}
 
 		m_window = SDL_CreateWindow("test_window_name", width, height,
-			SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE /*0*/); // Flags
+	        SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
+    
+    		ASSERT(m_window == nullptr, "Failed to create window! SDL_Error: {0}", SDL_GetError());
 
 		// Create OpenGL context
 		m_glContext = SDL_GL_CreateContext(m_window);
-		ASSERT(m_glContext == NULL, "OpenGL context is NULL!");
-
-		SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+		ASSERT(m_glContext == NULL, "OpenGL context is NULL! SDL_Error: {0}", SDL_GetError());
 
 		// Load OpenGL functions via GLAD
-		Renderer::Init(SDL_GL_GetProcAddress); /// Replace
+		// Renderer::Init(SDL_GL_GetProcAddress); /// Replace
+		Renderer::Init((Renderer::GLLoader)SDL_GL_GetProcAddress);
 		
 		// Set clear color, optional
 		Renderer::SetClearColor({ 0.1f, 0.1f, 0.1f, 1.0f });

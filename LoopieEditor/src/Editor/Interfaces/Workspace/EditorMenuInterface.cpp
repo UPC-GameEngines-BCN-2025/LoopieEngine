@@ -208,9 +208,9 @@ namespace Loopie {
 			m_msLog.push_back(ms);
 
 			char title[25];
-			sprintf_s(title, 25, "Framerate %.1f", m_fpsLog.back());
+			snprintf(title, 25, "Framerate %.1f", m_fpsLog.back());
 			ImGui::PlotHistogram("##framerate", &m_fpsLog[0], (int)m_fpsLog.size(), 0, title, 0.0f, 100.0f, ImVec2(310, 100));
-			sprintf_s(title, 25, "Milliseconds %.1f", m_msLog.back());
+			snprintf(title, 25, "Milliseconds %.1f", m_msLog.back());
 			ImGui::PlotHistogram("##milliseconds", &m_msLog[0], (int)m_msLog.size(), 0, title, 0.0f, 40.0f, ImVec2(310, 100));
 
 		}
