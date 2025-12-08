@@ -1,4 +1,4 @@
-[vertex]
+  [vertex]
 #version 460 core
 /// DO NOT MODIFY
 layout (location = 0) in vec3 a_Position;
@@ -9,7 +9,7 @@ layout (location = 4) in vec4 a_Color;
 
 layout (std140, binding = 0) uniform Matrices
 {
-    mat4 lp_Pprojection;
+    mat4 lp_Projection;
     mat4 lp_View;
 };
 
@@ -21,7 +21,7 @@ out vec3 v_Normal;
 
 void main()
 {
-    gl_Position = lp_Pprojection * lp_View* lp_Transform * vec4(a_Position, 1.0);
+    gl_Position = lp_Projection * lp_View* lp_Transform * vec4(a_Position, 1.0);
     v_TexCoord = a_TexCoord;
     v_Normal = mat3(lp_Transform) * a_Normal;
 }

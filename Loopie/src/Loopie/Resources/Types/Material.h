@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Loopie/Render/Shader.h"
+#include "Loopie/Resources/Resource.h"
 #include "Loopie/Resources/Types/Texture.h"
 
 #include <variant>
@@ -13,22 +14,27 @@ namespace Loopie
 		std::variant<int, float, bool, unsigned int, vec2, vec3, vec4, matrix2, matrix3, matrix4> value;
 	};
 
-	class Material
+	class Material : public Resource
 	{
 	public:
-		Material();
+		DEFINE_TYPE(Material)
+		Material(const UUID& id);
 		~Material();
 
-		void InitMaterial();
+		static std::shared_ptr<Material> GetDefault();
+
+		void Bind();
+		void Unbind() const;
+
+		bool Load() override;
+		void Save();
 		void ResetMaterial();
-		void Apply(); // Applies all uniform values to the shader
 
 		// Getters
 		Shader& GetShader() { return m_shader; }
 		const Shader& GetShader() const { return m_shader; }
 		std::shared_ptr<Texture> GetTexture() const { return m_texture; } /// Remove
 		UniformValue* GetShaderVariable(const std::string& name);
-		const UniformValue* GetShaderVariable(const std::string& name) const;
 		const std::unordered_map<std::string, UniformValue>& GetUniforms() const { return m_uniformValues; }
 
 		// Setters
@@ -36,13 +42,14 @@ namespace Loopie
 		bool SetShaderVariable(const std::string& name, const UniformValue& value);
 		void SetTexture(std::shared_ptr<Texture> texture); /// Remove
 
-		void Bind();
-		void Unbind() const;
+
+		void SetIfEditable(bool isEditable) { m_editable = isEditable; }
+		bool IsEditable() { return m_editable; }
+
 
 	private:
 		void ApplyUniform(const std::string& name, const UniformValue& uniformValue);
 		
-
 	private:
 		Shader m_shader = Shader("assets/shaders/DefaultShader.shader");
 		std::shared_ptr<Texture> m_texture;
@@ -50,5 +57,9 @@ namespace Loopie
 		// adjust them for different textures (maybe we want a variable of type roughness
 		// to be different for all different kinds of textures, which can be changed like this)
 		std::unordered_map<std::string, UniformValue> m_uniformValues;
+		bool m_editable = true;
+
+
+		static std::shared_ptr<Material> s_Material;
 	};
 }

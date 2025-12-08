@@ -9,7 +9,7 @@ namespace Loopie {
 		ProjectSetupModule() = default;
 		~ProjectSetupModule() = default;
 
-		void OnUpdate(float dt) override;
+		void OnUpdate() override;
 		void OnLoad()override;
 		void OnUnload()override;
 		void OnInterfaceRender()override;

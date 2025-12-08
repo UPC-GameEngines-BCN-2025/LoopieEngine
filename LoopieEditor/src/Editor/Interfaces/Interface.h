@@ -9,7 +9,7 @@ namespace Loopie {
 	public:
 		Interface() = default;
 		~Interface() = default;
-		virtual void Update(float dt, const InputEventManager& inputEvent) {};
+		virtual void Update(const InputEventManager& inputEvent) {};
 		virtual void Render() {};
 		virtual void Init() {};
 

@@ -9,21 +9,19 @@
 #include <filesystem>
 
 namespace Loopie {
-	Mesh::Mesh(const UUID& id, unsigned int index) : Resource(id)
+	Mesh::Mesh(const UUID& id, unsigned int index) : Resource(id,ResourceType::MESH)
 	{
 		m_meshIndex = index;
-		Reload();
-	}
-	void Mesh::LoadFromFile(const std::string path)
-	{
-		MeshImporter::LoadModel(path, *this);
+		Load();
 	}
 
-	void Mesh::Reload()
+	bool Mesh::Load()
 	{
 		Metadata* metadata = AssetRegistry::GetMetadata(GetUUID());
-		if (metadata->HasCache && m_meshIndex< metadata->cachesPath.size()) {
-			LoadFromFile(metadata->cachesPath[m_meshIndex]);
+		if (metadata->HasCache && m_meshIndex< metadata->CachesPath.size()) {
+			MeshImporter::LoadModel(metadata->CachesPath[m_meshIndex], *this);
+			return true;
 		}
+		return false;
 	}
 }

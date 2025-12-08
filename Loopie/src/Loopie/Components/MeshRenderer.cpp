@@ -1,14 +1,36 @@
 #include "MeshRenderer.h"
 
 #include "Loopie/Render/Renderer.h"
+#include "Loopie/Core/Log.h"
 #include "Loopie/Render/Gizmo.h"
-#include "Loopie/Core/Math.h"
+#include "Loopie/Math/MathTypes.h"
 #include "Loopie/Components/Transform.h"
+#include "Loopie/Resources/AssetRegistry.h"
+#include "Loopie/Resources/ResourceManager.h"
 
 namespace Loopie {
 
 	MeshRenderer::MeshRenderer() {
 		
+	}
+
+	MeshRenderer::~MeshRenderer()
+	{
+		if (GetOwner() && GetTransform())
+			GetTransform()->m_transformNotifier.RemoveObserver(this);
+	}
+
+	void MeshRenderer::Init()
+	{
+		RecalculateBoundingBoxes();
+		GetTransform()->m_transformNotifier.AddObserver(this);
+	}
+
+	void MeshRenderer::OnNotify(const TransformNotification& id)
+	{
+		if (id == TransformNotification::OnChanged || id == TransformNotification::OnDirty) {
+			SetBoundingBoxesDirty();
+		}
 	}
 
 	void MeshRenderer::Render() {
@@ -18,6 +40,15 @@ namespace Loopie {
 				RenderNormalsPerFace(0.5f,{0,1,1,1});
 			if(m_drawNormalsPerTriangle)
 				RenderNormalsPerTriangle(0.5f,{1,1,0,1});
+
+			if (m_drawAABB || m_drawOBB) {
+				if(m_drawAABB)
+					Gizmo::DrawCube(m_worldAABB.MinPoint, m_worldAABB.MaxPoint);
+				if(m_drawOBB)
+					Gizmo::DrawCube(m_worldOBB.GetCorners());
+			}
+			///
+
 		}
 		
 	}
@@ -25,6 +56,7 @@ namespace Loopie {
 	void MeshRenderer::SetMesh(std::shared_ptr<Mesh> mesh)
 	{
 		m_mesh = mesh;
+		SetBoundingBoxesDirty();
 	}
 
 	void MeshRenderer::SetMaterial(std::shared_ptr<Material> material)
@@ -32,11 +64,70 @@ namespace Loopie {
 		m_material = material;
 	}
 
-	void MeshRenderer::Init()
-	{
-		m_material = std::make_shared<Material>();
+	std::shared_ptr<Material> MeshRenderer::GetMaterial() {
+		if (m_material)
+			return m_material;
+		return Material::GetDefault();
 	}
-	
+
+	const AABB& MeshRenderer::GetWorldAABB() const
+	{
+		RecalculateBoundingBoxes(); 
+		return m_worldAABB;
+	}
+
+	const OBB& MeshRenderer::GetWorldOBB() const
+	{
+		RecalculateBoundingBoxes();
+		return m_worldOBB;
+	}
+
+	JsonNode MeshRenderer::Serialize(JsonNode& parent) const
+	{
+		JsonNode meshRendererObj = parent.CreateObjectField("meshrenderer");
+
+		if (m_mesh) {
+			meshRendererObj.CreateField<std::string>("mesh_uuid", m_mesh->GetUUID().Get());
+			meshRendererObj.CreateField<unsigned int>("mesh_index", m_mesh->GetMeshIndex());
+		}
+		if (m_material)
+			meshRendererObj.CreateField<std::string>("material_uuid", m_material->GetUUID().Get());
+
+		return meshRendererObj;
+	}
+
+	void MeshRenderer::Deserialize(const JsonNode& data)
+	{
+		// TODO: Add deserialization for mesh renderer
+		if (data.Contains("mesh_uuid"))
+		{
+			// This is causing an error so I have to revise it at another point
+			UUID id = UUID(data.GetValue<std::string>("mesh_uuid").Result);
+			unsigned int index = data.GetValue<unsigned int>("mesh_index").Result;
+
+			Metadata* meta = AssetRegistry::GetMetadata(id);
+			if (meta)
+				m_mesh = ResourceManager::GetMesh(*meta, index);
+		}
+		if (data.Contains("material_uuid")) {
+			UUID id = UUID(data.GetValue<std::string>("material_uuid").Result);
+			Metadata* meta = AssetRegistry::GetMetadata(id);
+			if (meta)
+				m_material = ResourceManager::GetMaterial(*meta);
+		}
+	}
+
+	void MeshRenderer::RecalculateBoundingBoxes() const
+	{
+		if (!m_boundingBoxesDirty || !m_mesh)
+			return;
+
+		m_worldOBB = m_mesh->GetData().BoundingBox.ToOBB();
+		m_worldOBB.ApplyTransform(GetTransform()->GetLocalToWorldMatrix());
+		m_worldAABB = m_mesh->GetData().BoundingBox.Transform(GetTransform()->GetLocalToWorldMatrix());
+		
+		m_boundingBoxesDirty = false;
+	}
 
 	///TEST
 	vec3 MeshRenderer::GetVertexVec3Data(const MeshData& data, unsigned int vertexIndex, unsigned int offset)
@@ -64,7 +155,7 @@ namespace Loopie {
 
 		Transform* transform = GetTransform();
 		matrix4 modelMatrix = transform->GetLocalToWorldMatrix();
-		matrix3 normalMatrix = glm::transpose(glm::inverse(matrix3(modelMatrix)));
+		matrix3 normalMatrix = transpose(inverse(matrix3(modelMatrix)));
 
 		for (unsigned int i = 0; i + 5 < data.Indices.size(); i += 6) {
 			unsigned int indices[6] = {
@@ -110,7 +201,7 @@ namespace Loopie {
 
 		Transform* transform = GetTransform();
 		matrix4 modelMatrix = transform->GetLocalToWorldMatrix();
-		matrix3 normalMatrix = glm::transpose(glm::inverse(matrix3(modelMatrix)));
+		matrix3 normalMatrix = transpose(inverse(matrix3(modelMatrix)));
 
 		for (unsigned int i = 0; i + 2 < data.Indices.size(); i += 3) {
 			unsigned int i0 = data.Indices[i + 0];

@@ -1,7 +1,7 @@
 #include "Transform.h"
 #include "Loopie/Components/Component.h"
 #include "Loopie/Scene/Entity.h"
-#include "Loopie/Core/Math.h"
+#include "Loopie/Math/MathUtils.h"
 #include <memory>
 namespace Loopie
 {
@@ -116,17 +116,17 @@ namespace Loopie
 
     void Transform::SetWorldMatrix(const matrix4& worldMatrix)
     {
-        glm::vec3 position, scale;
-        glm::quat rotation;
+        vec3 position, scale;
+        quaternion rotation;
 
-        DecomposeMatrix(worldMatrix, position, rotation, scale);
+        Math::DecomposeMatrix(worldMatrix, position, rotation, scale);
 
         if (auto parent = GetOwner()->GetParent().lock())
         {
             Transform* parentTransform = parent->GetTransform();
 
-            SetLocalPosition(glm::vec3(parentTransform->GetWorldToLocalMatrix() * glm::vec4(position, 1.0f)));
-            SetLocalRotation(glm::inverse(parentTransform->GetWorldRotation()) * rotation);
+            SetLocalPosition(vec3(parentTransform->GetWorldToLocalMatrix() * vec4(position, 1.0f)));
+            SetLocalRotation(inverse(parentTransform->GetWorldRotation()) * rotation);
             SetLocalScale(scale / parentTransform->GetWorldScale());
         }
         else
@@ -165,7 +165,7 @@ namespace Loopie
         rotMat[1] /= scale.y;
         rotMat[2] /= scale.z;
 
-        return glm::quat_cast(rotMat);
+        return Math::ToQuaternion(rotMat);
     }
 
     vec3 Transform::GetWorldScale() const
@@ -266,7 +266,7 @@ namespace Loopie
         vec3 pos = GetWorldPosition();
         matrix4 look = lookAt(pos, worldTarget, worldUp);
         matrix4 rotMat = inverse(look);
-        quaternion quat = glm::quat_cast(matrix3(rotMat));
+        quaternion quat = Math::ToQuaternion(matrix3(rotMat));
         SetWorldRotation(quat);
     }
 
@@ -308,11 +308,15 @@ namespace Loopie
 
     void Transform::MarkWorldDirty()
     {
-        if (m_worldDirty) return;
+        if (m_worldDirty) 
+            return;
         m_worldDirty = true;
+        m_transformNotifier.Notify(TransformNotification::OnDirty);
+
         for (auto& child : GetOwner()->GetChildren()) {
             if (child) child->GetTransform()->MarkWorldDirty();
         }
+
     }
 
     bool Transform::IsDirty() const{
@@ -328,9 +332,73 @@ namespace Loopie
             if (child) child->GetTransform()->ForceRefreshMatrices();
     }
 
+    JsonNode Transform::Serialize(JsonNode& parent) const
+    {
+        JsonNode transformObj = parent.CreateObjectField("transform");
+        
+        JsonNode node = transformObj.CreateObjectField("position");
+        node.CreateField("x", m_localPosition.x);
+        node.CreateField("y", m_localPosition.y);
+        node.CreateField("z", m_localPosition.z);
+
+        node = transformObj.CreateObjectField("rotation");
+        node.CreateField("x", m_localRotation.x);
+        node.CreateField("y", m_localRotation.y);
+        node.CreateField("z", m_localRotation.z);
+        node.CreateField("w", m_localRotation.w);
+
+        node = transformObj.CreateObjectField("scale");
+        node.CreateField("x", m_localScale.x);
+        node.CreateField("y", m_localScale.y);
+        node.CreateField("z", m_localScale.z);
+
+        vec3 localEulerAngles = GetLocalEulerAngles();
+        node = transformObj.CreateObjectField("euler_angles");
+        node.CreateField("x", localEulerAngles.x);
+        node.CreateField("y", localEulerAngles.y);
+        node.CreateField("z", localEulerAngles.z);
+
+        return transformObj;
+    }
+
+    void Transform::Deserialize(const JsonNode& data)
+    {
+        JsonNode node = data.Child("position");
+        if (node.IsValid() && node.IsObject())
+        {     
+            m_localPosition.x = node.GetValue<float>("x", 0.0f).Result; 
+            m_localPosition.y = node.GetValue<float>("y", 0.0f).Result;
+            m_localPosition.z = node.GetValue<float>("z", 0.0f).Result;
+        }
+
+        node = data.Child("rotation");
+        if (node.IsValid() && node.IsObject())
+        {
+            m_localRotation.x = node.GetValue<float>("x", 0.0f).Result;
+            m_localRotation.y = node.GetValue<float>("y", 0.0f).Result;
+            m_localRotation.z = node.GetValue<float>("z", 0.0f).Result;
+        }
+
+        node = data.Child("scale");
+        if (node.IsValid() && node.IsObject())
+        {
+            m_localScale.x = node.GetValue<float>("x", 1.0f).Result;
+            m_localScale.y = node.GetValue<float>("y", 1.0f).Result;
+            m_localScale.z = node.GetValue<float>("z", 1.0f).Result;
+        }
+
+        node = data.Child("euler_angles");
+        if (node.IsValid() && node.IsObject())
+        {
+            SetEulerAngles({node.GetValue<float>("x", 0.0f).Result,
+                            node.GetValue<float>("y", 0.0f).Result,
+                            node.GetValue<float>("z", 0.0f).Result });
+        }
+    }
+
     void Transform::RefreshMatrices() const
     {
-        if (!m_worldDirty) return;
+        if (!IsDirty()) return;
 
         matrix4 localMat = translate(matrix4(1.0f), m_localPosition) * toMat4(m_localRotation) * scale(matrix4(1.0f), m_localScale);
 
@@ -349,5 +417,7 @@ namespace Loopie
 
         m_localDirty = false;
         m_worldDirty = false;
+
+        m_transformNotifier.Notify(TransformNotification::OnChanged);
     }
 };

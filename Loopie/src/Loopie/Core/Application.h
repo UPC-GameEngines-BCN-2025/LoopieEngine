@@ -3,6 +3,8 @@
 #include "Loopie/Core/Module.h"
 #include "Loopie/Core/Window.h"
 #include "Loopie/Core/InputEventManager.h"
+#include "Loopie/Events/Event.h"
+#include "Loopie/Events/EventTypes.h"
 #include "Loopie/Project/Project.h"
 #include "Loopie/ImGui/ImGuiManager.h"
 #include "Loopie/Scene/Scene.h"
@@ -37,6 +39,7 @@ namespace Loopie {
 
 	public:
 		Project m_activeProject;
+		Event<EngineNotification> m_notifier;
 	private:
 		static Application* s_Instance;
 		Scene* m_scene = nullptr;

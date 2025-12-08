@@ -23,21 +23,27 @@ namespace Loopie {
 
     bool Json::WriteToFileFromString(const std::filesystem::path& filePath, const std::string& jsonString, int indent)
     {
-        std::ofstream ofs(filePath);
+        std::ofstream ofs(filePath, std::ios::trunc);
         if (!ofs.is_open()) return false;
         
         json j = json::parse(jsonString, nullptr, false);
         if (j.is_discarded()) return false;
         ofs << j.dump(indent);
    
+        ofs.flush();
+        ofs.close();
+
         return true;
     }
 
     bool Json::WriteToFileFromData(const std::filesystem::path& filePath, const JsonData& jsonData, int indent)
     {
-        std::ofstream ofs(filePath);
+        std::ofstream ofs(filePath, std::ios::trunc);
         if (!ofs.is_open()) return false;
         ofs << jsonData.m_data.dump(indent);
+
+        ofs.flush();
+        ofs.close();
         return true;
     }
 

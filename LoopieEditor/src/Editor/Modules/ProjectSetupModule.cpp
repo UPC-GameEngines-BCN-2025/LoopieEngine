@@ -10,11 +10,12 @@
 
 namespace Loopie
 {
-	void ProjectSetupModule::OnUpdate(float dt)
+	void ProjectSetupModule::OnUpdate()
 	{
 		Application& app = Application::GetInstance();
 		if (!app.m_activeProject.IsEmpty())
 		{
+			Application::GetInstance().GetWindow().SetTitle(app.m_activeProject.GetProjectName().c_str());
 			app.AddModule(new EditorModule());
 			app.RemoveModule(this);
 		}

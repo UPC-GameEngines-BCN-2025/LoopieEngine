@@ -221,79 +221,84 @@ namespace Loopie {
         friend class JsonNode;
         friend class Json;
 
+        json& GetRoot()
+        {
+            return m_data;
+        }
+
         bool IsEmpty() const { return m_empty; }
 
         unsigned int Size() {
-            return Root().Size();
+            return Node().Size();
         }
 
         JsonNode Child(const std::string& keyPath) {
-            return Root().Child(keyPath);
+            return Node().Child(keyPath);
         }
 
         template <typename T>
         JsonResult<T> GetValue(const std::string& keyPath, T defaultValue = {}) {
-            return Root().GetValue(keyPath, defaultValue);
+            return Node().GetValue(keyPath, defaultValue);
         }
 
         template <typename T>
         bool SetValue(const std::string& keyPath, T value) {
-            return Root().SetValue(keyPath, value);
+            return Node().SetValue(keyPath, value);
         }
 
         std::vector<std::string> GetObjectKeys(const std::string& keyPath) {
-            return Root().GetObjectKeys(keyPath);
+            return Node().GetObjectKeys(keyPath);
         }
 
         bool HasKey(const std::string& keyPath, const std::string& key) {
-            return Root().HasKey(keyPath, key);
+            return Node().HasKey(keyPath, key);
         }
 
         template <typename T>
         bool CreateField(const std::string& keyPath, T value) {
-            return Root().CreateField(keyPath, value).IsValid();
+            return Node().CreateField(keyPath, value).IsValid();
         }
 
         JsonNode CreateObjectField(const std::string& keyPath) {
-            return Root().CreateObjectField(keyPath);
+            return Node().CreateObjectField(keyPath);
         }
 
         JsonNode CreateArrayField(const std::string& keyPath) {
-            return Root().CreateArrayField(keyPath);
+            return Node().CreateArrayField(keyPath);
         }
 
         template <typename T>
         JsonResult<T> GetArrayElement(const std::string& keyPath, unsigned int index) {
-            return Root().GetArrayElement<T>(keyPath, index);
+            return Node().GetArrayElement<T>(keyPath, index);
         }
 
         template <typename T>
         bool AddArrayElement(const std::string& keyPath, T value) {
-            return Root().AddArrayElement(keyPath, value);
+            return Node().AddArrayElement(keyPath, value);
         }
 
         template <typename T>
         bool ModifyArrayElement(const std::string& keyPath, unsigned int index, T value) {
-            return Root().ModifyArrayElement(keyPath, index, value);
+            return Node().ModifyArrayElement(keyPath, index, value);
         }
 
         bool RemoveArrayElement(const std::string& keyPath, unsigned int index) {
-            return Root().RemoveArrayElement(keyPath, index);
+            return Node().RemoveArrayElement(keyPath, index);
         }
 
         bool ClearArray(const std::string& keyPath) {
-            return Root().ClearArray(keyPath);
+            return Node().ClearArray(keyPath);
         }
 
         bool Remove(const std::string& keyPath) {
-            return Root().Remove(keyPath);
+            return Node().Remove(keyPath);
         }
 
         std::string ToString(int indent = 4) const {
             return m_data.dump(indent);
         }
 
-        JsonNode Root() { return JsonNode(&m_data); }
+        JsonNode Node() { return JsonNode(&m_data); }
 
         bool ToFile(const std::filesystem::path& filePath, int indent = 4);
 

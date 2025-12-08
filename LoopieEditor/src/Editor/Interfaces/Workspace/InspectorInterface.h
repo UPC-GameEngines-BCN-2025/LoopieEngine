@@ -1,7 +1,6 @@
 #pragma once 
 
 #include "Editor/Interfaces/Interface.h"
-#include "Loopie/Core/Math.h"
 
 namespace Loopie {
 	class Transform;

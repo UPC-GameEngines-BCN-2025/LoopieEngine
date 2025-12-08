@@ -1,5 +1,8 @@
 #pragma once
 #include "Loopie/Resources/Resource.h"
+#include "Loopie/Math/MathTypes.h"
+#include "Loopie/Math/AABB.h"
+#include "Loopie/Math/OBB.h"
 
 #include "Loopie/Render/IndexBuffer.h"
 #include "Loopie/Render/VertexBuffer.h"
@@ -11,6 +14,13 @@
 namespace Loopie {
 
 	struct MeshData {
+		std::string Name;
+
+		AABB BoundingBox;
+		vec3 Position = vec3(0); /// Still NotWorking
+		quaternion Rotation = quaternion(1,0,0,0); /// Still NotWorking
+		vec3 Scale = vec3(0); /// Still NotWorking
+
 		unsigned int VerticesAmount = 0;
 		unsigned int VertexElements = 0;
 		unsigned int IndicesAmount = 0;
@@ -23,6 +33,7 @@ namespace Loopie {
 
 		std::vector<float> Vertices;
 		std::vector<unsigned int> Indices;
+
 	};
 	
 	class Mesh : public Resource{
@@ -34,10 +45,10 @@ namespace Loopie {
 		Mesh(const UUID& id, unsigned int index);
 		~Mesh() = default;
 
-		void LoadFromFile(const std::string path) override;
-		void Reload() override;
+		bool Load() override;
 
 		const MeshData& GetData() { return m_data; }
+		unsigned int GetMeshIndex() { return m_meshIndex; }
 		const std::shared_ptr<VertexArray> GetVAO() { return m_vao; }
 	private:
 		MeshData m_data;

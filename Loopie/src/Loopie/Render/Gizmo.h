@@ -1,5 +1,8 @@
 #pragma once
-#include "Loopie/Core/Math.h"
+#include "Loopie/Math/MathTypes.h"
+#include "Loopie/Math/Frustum.h"
+#include "Loopie/Math/AABB.h"
+#include "Loopie/Math/OBB.h"
 
 #include <memory>
 
@@ -17,6 +20,11 @@ namespace Loopie {
 		static void Shutdown();
 
 		static void DrawLine(const vec3& p0, const vec3& p1, const vec4& color = {1,1,1,1});
+		static void DrawCube(const vec3& p0, const vec3& p1, const vec4& color = {1,1,1,1});
+		static void DrawCube(const std::array<vec3, 8>& corners, const vec4& color = {1,1,1,1});
+		static void DrawCube(const OBB& obb, const vec4& color = {1,1,1,1});
+		static void DrawCube(const AABB& aabb, const vec4& color = {1,1,1,1});
+		static void DrawFrustum(const Frustum& frustum, const vec4& color = { 1,1,1,1 });
 
 		static void SetGridSize(int size);
 		static void SetGridSpacing(float spacing);

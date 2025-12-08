@@ -1,10 +1,10 @@
 #pragma once
 #include <cstddef>
 namespace Loopie {
-	class Identificable {
+	class IIdentificable {
 	public:
-		Identificable();
-		virtual ~Identificable();
+		IIdentificable() {}
+		virtual ~IIdentificable() {}
 
 		virtual size_t GetTypeID() const = 0;
 

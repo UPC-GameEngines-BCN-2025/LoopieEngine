@@ -14,7 +14,7 @@ namespace Loopie {
 		SceneInterface();
 		~SceneInterface() = default;
 		void Init() override {}
-		void Update(float dt, const InputEventManager& inputEvent) override;
+		void Update(const InputEventManager& inputEvent) override;
 		void Render() override;
 
 		void StartScene();
@@ -24,6 +24,7 @@ namespace Loopie {
 
 		void ChargeModel(const std::string& modelPath);
 		void ChargeTexture(const std::string& texturePath);
+		void ChargeMaterial(const std::string& materialPath);
 
 	private:
 		void Drop();

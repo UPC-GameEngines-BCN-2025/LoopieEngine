@@ -13,7 +13,7 @@ namespace Loopie {
 		
 	}
 
-	void HierarchyInterface::Update(float dt, const InputEventManager& inputEvent)
+	void HierarchyInterface::Update(const InputEventManager& inputEvent)
 	{
 		if(m_focused)
 			HotKeysSelectedEntiy(inputEvent);
@@ -37,6 +37,7 @@ namespace Loopie {
 			for (const auto& entity : m_scene->GetRootEntity()->GetChildren())
 			{
 				DrawEntitySlot(entity);
+				
 			}
 			
 			if (ImGui::BeginPopupContextWindow("HierarchyBackgroundContext", ImGuiPopupFlags_MouseButtonRight | ImGuiPopupFlags_NoOpenOverItems)) {
@@ -59,8 +60,9 @@ namespace Loopie {
 
 	void HierarchyInterface::DrawEntitySlot(const std::shared_ptr<Entity>& entity)
 	{
-		if (!entity)
+		if (!entity) {
 			return;
+		}
 		ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_SpanAvailWidth;
 		const auto& children = entity->GetChildren();
 		bool hasChildren = !children.empty();
@@ -71,6 +73,9 @@ namespace Loopie {
 			flags |= ImGuiTreeNodeFlags_Selected;
 
 		bool opened = ImGui::TreeNodeEx((void*)entity.get(), flags, entity->GetName().c_str());
+
+		Drag(entity);
+		Drop(entity);
 
 		if (ImGui::IsItemClicked())
 		{
@@ -171,6 +176,33 @@ namespace Loopie {
 		}
 
 	}
+	void HierarchyInterface::Drag(const std::shared_ptr<Entity>& entity)
+	{
+		if (ImGui::BeginDragDropSource())
+		{
+			Entity* rawPtr = entity.get();
+			ImGui::SetDragDropPayload("HIERARCHY_ENTITY_PTR", &rawPtr, sizeof(Entity*));
+			ImGui::EndDragDropSource();
+		}
+	}
+
+	void HierarchyInterface::Drop(const std::shared_ptr<Entity>& entity)
+	{
+		if (ImGui::BeginDragDropTarget())
+		{
+			if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("HIERARCHY_ENTITY_PTR"))
+			{
+				Entity* draggedRaw = *(Entity**)payload->Data;
+
+				if(draggedRaw)
+					draggedRaw->SetParent(entity);
+			}
+
+			ImGui::EndDragDropTarget();
+		}
+	}
+
+
 	std::shared_ptr<Entity> HierarchyInterface::CreatePrimitiveModel(const std::string& modelPath, const std::string& name, const std::shared_ptr<Entity>& parent)
 	{
 		std::shared_ptr<Entity> newEntity = m_scene->CreateEntity(name, parent);

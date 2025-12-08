@@ -21,7 +21,8 @@ namespace Loopie {
             Metadata metadata;
 
             JsonData data = Json::ReadFromFile(metadataPath);
-            metadata.uuid = UUID(data.GetValue<std::string>("Id").Result);
+            metadata.UUID = UUID(data.GetValue<std::string>("Id").Result);
+            metadata.Type = (ResourceType)data.GetValue<int>("Type").Result;
             metadata.HasCache = data.GetValue<bool>("HasCache").Result;
             metadata.LastModified = data.GetValue<std::time_t>("LastModified").Result;
             std::time_t currentTime = GetLastModifiedFromPath(assetPath);
@@ -53,7 +54,8 @@ namespace Loopie {
         std::filesystem::path metadataPath = assetPath.string() + ".meta";
 
         JsonData data;
-        data.CreateField<std::string>("Id",metadata.uuid.Get());
+        data.CreateField<std::string>("Id",metadata.UUID.Get());
+        data.CreateField<int>("Type",metadata.Type);
         data.CreateField<bool>("HasCache", metadata.HasCache);
         data.CreateField<time_t>("LastModified", metadata.LastModified);
 

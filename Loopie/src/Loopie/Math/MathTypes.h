@@ -18,7 +18,11 @@ namespace Loopie
 	typedef glm::ivec2 ivec2;
 	typedef glm::ivec3 ivec3;
 	typedef glm::ivec4 ivec4;
-    // There also exist uvec (unsigned) if we should ever need those
+
+    // Unsigned Vectors
+    typedef glm::uvec2 uvec2;
+    typedef glm::uvec3 uvec3;
+    typedef glm::uvec4 uvec4;
 
 	// Matrices
     typedef glm::mat2 matrix2;
@@ -39,6 +43,7 @@ namespace Loopie
     using glm::translate;
     using glm::rotate;
     using glm::scale;
+    using glm::decompose;
 
     // Angles
     using glm::radians;
@@ -52,21 +57,15 @@ namespace Loopie
     // Quaternion operations
     using glm::slerp;
     using glm::angleAxis;
-    //using glm::toMat4; // Belongs to <glm/gtx/quaternion.hpp>
-    //using glm::toQuat; // Belongs to <glm/gtx/quaternion.hpp>
+    using glm::toMat4;
+    using glm::toQuat;
 
     // Utilities
     using glm::clamp;
     using glm::mix;
     using glm::min;
     using glm::max;
+    using glm::abs;
 
-
-    static void DecomposeMatrix(const matrix4& matrix, vec3& position, quaternion& rotation, glm::vec3& scale)
-    {
-        vec3 skew;
-        vec4 perspective;
-        glm::decompose(matrix, scale, rotation, position, skew, perspective);
-    }
 }
 

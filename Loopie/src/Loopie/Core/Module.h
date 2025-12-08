@@ -10,7 +10,7 @@ namespace Loopie {
 
 		virtual void OnLoad() {}
 		virtual void OnUnload() {}
-		virtual void OnUpdate(float dt) {}
+		virtual void OnUpdate() {}
 		virtual void OnInterfaceRender() {}
 
 		void Stop() { m_active = false; }

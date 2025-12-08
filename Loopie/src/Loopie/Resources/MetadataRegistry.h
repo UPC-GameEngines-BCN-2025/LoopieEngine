@@ -1,6 +1,8 @@
 #pragma once
 
 #include "Loopie/Core/UUID.h"
+#include "Loopie/Resources/Resource.h"
+#include "Loopie/Importers/ImportSettings.h"
 
 #include <filesystem>
 #include <string>
@@ -8,14 +10,14 @@
 
 #include <iomanip>
 #include <sstream>
-#include <ctime>
-#include <vector>   
+#include <ctime>   
 
 namespace Loopie {
 
     struct Metadata {
-        UUID uuid;
-        std::vector<std::string> cachesPath;
+        UUID UUID;
+        ResourceType Type = ResourceType::UNKNOWN;
+        std::vector<std::string> CachesPath;
 
         bool HasCache = false;
         bool IsOutdated = false;

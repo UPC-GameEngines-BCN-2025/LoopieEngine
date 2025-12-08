@@ -1,5 +1,6 @@
 #include "Project.h"
 
+#include "Loopie/Core/Application.h"
 #include "Loopie/Files/DirectoryManager.h"
 
 namespace Loopie {
@@ -14,6 +15,7 @@ namespace Loopie {
 		CreateDefaultPaths();
 
 		/// Maybe some config Files???? Once Scene Exists a default One
+		Application::GetInstance().m_notifier.Notify(EngineNotification::OnProjectChange);
 		return true;
 	}
 
@@ -27,6 +29,8 @@ namespace Loopie {
 		CreateDefaultPaths();
 
 		/// Maybe read/save config Files????
+
+		Application::GetInstance().m_notifier.Notify(EngineNotification::OnProjectChange);
 		return true;
 	}
 	const void Project::CreateDefaultPaths()

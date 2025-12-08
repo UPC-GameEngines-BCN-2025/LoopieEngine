@@ -1,22 +1,35 @@
 #pragma once
 
 #include "Loopie/Core/UUID.h"
-#include "Loopie/Core/Identificable.h"
+#include "Loopie/Core/IIdentificable.h"
 
 namespace Loopie {
-	class Resource : public  Identificable {
+	enum ResourceType
+	{
+		TEXTURE,
+		MESH,
+		MATERIAL,
+		SHADER,
+		SCENE,
+		UNKNOWN
+	};
+
+	class Resource : public  IIdentificable {
 	public:
-		Resource(UUID uuid) : m_uuid(uuid) {}
+		Resource(UUID uuid, ResourceType type) : m_uuid(uuid), m_type(type) {}
 		virtual ~Resource();
 
 		const UUID& GetUUID() { return m_uuid; }
 
-		virtual void LoadFromFile(const std::string path) = 0;
-		virtual void Reload() = 0;
+		virtual bool Load() = 0;
+	
+		void IncrementReferenceCount() { m_referenceCount++; }
+		void DecrementReferenceCount() { m_referenceCount--; }
 
-		const std::string& GetPath() { return m_path; }
 	protected:
 		UUID m_uuid;
-		std::string m_path;
+		ResourceType m_type;
+		unsigned int m_referenceCount = 0;
+
 	};
 }

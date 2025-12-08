@@ -23,7 +23,7 @@ namespace Loopie {
 	}
 
 	void MaterialImporter::ImportMaterial(const std::string& filepath, Metadata& metadata) {
-		if (metadata.HasCache)
+		if (metadata.HasCache && !metadata.IsOutdated)
 			return;
 
 		JsonData jsonData = Json::ReadFromFile(filepath);
@@ -66,11 +66,11 @@ namespace Loopie {
 			fs.write(reinterpret_cast<const char*>(&nameLength), sizeof(nameLength));
 			fs.write(key.c_str(), nameLength);
 
-			///Write EnumType
-			///Write Value
+			unsigned int typeLenght = (unsigned int)type.size();
+			fs.write(reinterpret_cast<const char*>(&typeLenght), sizeof(typeLenght));
+			fs.write(type.c_str(), typeLenght);
 
-			unsigned int enumLength = (unsigned int)key.size();
-			fs.write(reinterpret_cast<const char*>(&enumLength), sizeof(enumLength));
+			///Write Value
 			if (type == "Int") {
 				int dataValue = std::stoi(value);
 				fs.write(reinterpret_cast<const char*>(&dataValue), sizeof(dataValue));
@@ -106,13 +106,16 @@ namespace Loopie {
 		fs.close();
 
 		metadata.HasCache = true;
-		metadata.cachesPath.clear();
-		metadata.cachesPath.push_back(locationPath.string());
+		metadata.CachesPath.clear();
+		metadata.CachesPath.push_back(locationPath.string());
+		metadata.Type = ResourceType::MATERIAL;
+
 		MetadataRegistry::SaveMetadata(filepath, metadata);
 
 	}
 
 	void MaterialImporter::LoadMaterial(const std::string& path, Material& material) {
+	
 		Project project = Application::GetInstance().m_activeProject;
 		std::filesystem::path filepath = project.GetChachePath() / path;
 		if (!std::filesystem::exists(filepath))
@@ -136,94 +139,221 @@ namespace Loopie {
 
 		///Load
 
-		std::string id;
+		std::string id(UUID::UUID_SIZE, '\0');
 		file.read(id.data(), UUID::UUID_SIZE);
-		UUID shaderUUID = UUID(id);
+		//UUID shaderUUID = UUID(id);
 
 		unsigned int propertiesCount = 0;
-		file.read(reinterpret_cast<char*>(&propertiesCount), sizeof propertiesCount);
+		file.read(reinterpret_cast<char*>(&propertiesCount), sizeof(propertiesCount));
 
 		for (size_t i = 0; i < propertiesCount; i++)
 		{
 			unsigned int propertyNameLength = 0;
-			file.read(reinterpret_cast<char*>(&propertyNameLength), sizeof propertyNameLength);
-
+			file.read(reinterpret_cast<char*>(&propertyNameLength), sizeof(propertyNameLength));
 			std::string propertyName(propertyNameLength, '\0');
-			file.read(propertyName.data(), sizeof propertyNameLength);
+			file.read(propertyName.data(), propertyNameLength);
 
-			//// ReadEnume
-			unsigned int typeLength = 0;
-			file.read(reinterpret_cast<char*>(&typeLength), sizeof(typeLength));
-			std::string type(typeLength, '\0');
-			file.read(&type[0], typeLength);
+			unsigned int propertyTypeLength = 0;
+			file.read(reinterpret_cast<char*>(&propertyTypeLength), sizeof(propertyTypeLength));
+			std::string propertyType(propertyTypeLength, '\0');
+			file.read(propertyType.data(), propertyTypeLength);
+
 
 
 			UniformValue uv{};
 
-			if (type == "Int") {
+			if (propertyType == "Int") {
 				int v; 
 				file.read(reinterpret_cast<char*>(&v), sizeof(v));
-				uv.type = UniformType_int; uv.value = v;
+				uv.type = UniformType_int; 
+				uv.value = v;
 			}
-			else if (type == "Float") {
+			else if (propertyType == "Float") {
 				float v;
 				file.read(reinterpret_cast<char*>(&v), sizeof(v));
-				uv.type = UniformType_float; uv.value = v;
+				uv.type = UniformType_float; 
+				uv.value = v;
 			}
-			else if (type == "UInt") {
+			else if (propertyType == "UInt") {
 				unsigned int v; 
 				file.read(reinterpret_cast<char*>(&v), sizeof(v));
-				uv.type = UniformType_uint; uv.value = v;
+				uv.type = UniformType_uint; 
+				uv.value = v;
 			}
-			else if (type == "Bool") {
+			else if (propertyType == "Bool") {
 				bool b; 
 				file.read(reinterpret_cast<char*>(&b), sizeof(b));
-				uv.type = UniformType_bool; uv.value = (b != 0);
+				uv.type = UniformType_bool; 
+				uv.value = (b != 0);
 			}
-			else if (type == "Vec2") {
+			else if (propertyType == "Vec2") {
 				glm::vec2 v;
 				file.read(reinterpret_cast<char*>(&v), sizeof(v));
 				uv.type = UniformType_vec2;
+				uv.value = v;
 			}
-			else if (type == "Vec3") {
+			else if (propertyType == "Vec3") {
 				glm::vec3 v;
 				file.read(reinterpret_cast<char*>(&v), sizeof(v));
 				uv.type = UniformType_vec3;
+				uv.value = v;
 			}
-			else if (type == "Vec4") {
+			else if (propertyType == "Vec4") {
 				glm::vec4 v;
 				file.read(reinterpret_cast<char*>(&v), sizeof(v));
 				uv.type = UniformType_vec4;
+				uv.value = v;
 			}
-			else if (type == "Mat2") {
+			else if (propertyType == "Mat2") {
 				glm::mat2 v;
 				file.read(reinterpret_cast<char*>(&v), sizeof(v));
 				uv.type = UniformType_mat2;
+				uv.value = v;
 			}
-			else if (type == "Mat3") {
+			else if (propertyType == "Mat3") {
 				glm::mat3 v;
 				file.read(reinterpret_cast<char*>(&v), sizeof(v));
 				uv.type = UniformType_mat3;
+				uv.value = v;
 			}
-			else if (type == "Mat4") {
+			else if (propertyType == "Mat4") {
 				glm::mat4 v;
 				file.read(reinterpret_cast<char*>(&v), sizeof(v));
 				uv.type = UniformType_mat4;
+				uv.value = v;
 			}
-			else if (type == "Sampler2D" ) {
-
+			else if (propertyType == "Sampler2D" ) {
+				uv.type = UniformType_Sampler2D;
 			}
-			else if (type == "Sampler3D") {
-
+			else if (propertyType == "Sampler3D") {
+				uv.type = UniformType_Sampler3D;
 			}
-			else if (type == "SamplerCube") {
-
+			else if (propertyType == "SamplerCube") {
+				uv.type = UniformType_Sampler3D;
 			}
 
 			material.SetShaderVariable(propertyName, uv);
 		}
 
 		file.close();
+	}
+
+	void MaterialImporter::SaveMaterial(const std::string& filepath, Material& material, Metadata& metadata)
+	{
+		JsonData jsonData;
+
+		Shader& shader = material.GetShader();
+		UUID randomUUID;
+		//std::string shaderUUIDString = shader.GetUUID().Get();
+
+		jsonData.CreateField("shader", randomUUID.Get());
+		JsonNode propertiesNode = jsonData.CreateObjectField("properties");
+
+		const auto& props = material.GetUniforms();
+		for (const auto& [id, uniformValue] : props)
+		{
+			std::string typeString;
+			std::string valueString;
+
+			switch (uniformValue.type)
+			{
+			case UniformType_int:
+			{
+				typeString = "Int";
+				int v = std::get<int>(uniformValue.value);
+				valueString = std::to_string(v);
+				break;
+			}
+			case UniformType_float:
+			{
+				typeString = "Float";
+				float v = std::get<float>(uniformValue.value);
+				valueString = std::to_string(v);
+				break;
+			}
+			case UniformType_uint:
+			{
+				typeString = "UInt";
+				unsigned int v = std::get<unsigned int>(uniformValue.value);
+				valueString = std::to_string(v);
+				break;
+			}
+			case UniformType_bool:
+			{
+				typeString = "Bool";
+				bool v = std::get<bool>(uniformValue.value);
+				valueString = v ? "True" : "False";
+				break;
+			}
+			case UniformType_vec2:
+			{
+				typeString = "Vec2";
+				auto v = std::get<glm::vec2>(uniformValue.value);
+				valueString = GLMVectorToString(v);
+				break;
+			}
+			case UniformType_vec3:
+			{
+				typeString = "Vec3";
+				auto v = std::get<glm::vec3>(uniformValue.value);
+				valueString = GLMVectorToString(v);
+				break;
+			}
+			case UniformType_vec4:
+			{
+				typeString = "Vec4";
+				auto v = std::get<glm::vec4>(uniformValue.value);
+				valueString = GLMVectorToString(v);
+
+				break;
+			}
+			case UniformType_mat2:
+			{
+				typeString = "Mat2";
+				auto m = std::get<glm::mat2>(uniformValue.value);
+				valueString = GLMMatrixToString(m);
+				break;
+			}
+
+			case UniformType_mat3:
+			{
+				typeString = "Mat3";
+				auto m = std::get<glm::mat3>(uniformValue.value);
+				valueString = GLMMatrixToString(m);
+
+				break;
+			}
+
+			case UniformType_mat4:
+			{
+				typeString = "Mat4";
+				auto m = std::get<glm::mat4>(uniformValue.value);
+				valueString = GLMMatrixToString(m);
+				break;
+			}
+
+			case UniformType_Sampler2D:
+			case UniformType_Sampler3D:
+			case UniformType_SamplerCube:
+			{
+				typeString = (uniformValue.type == UniformType_Sampler2D ? "Sampler2D" : uniformValue.type == UniformType_Sampler3D ? "Sampler3D" : "SamplerCube");
+
+				//UUID texID = std::get<UUID>(uniformValue.value);
+				//valueString = texID.Get();
+				break;
+			}
+			default:
+				break;
+
+				
+			}
+			JsonNode propertyNode = propertiesNode.CreateObjectField(id);
+			propertyNode.CreateField("type", typeString);
+			propertyNode.CreateField("value", valueString);
+		}
+
+		jsonData.ToFile(filepath);
+		metadata.IsOutdated = true;
 	}
 
 	bool MaterialImporter::CheckIfIsMaterial(const char* path) {

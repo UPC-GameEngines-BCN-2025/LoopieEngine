@@ -1,7 +1,7 @@
 #pragma once 
 
 #include "Editor/Interfaces/Interface.h"
-#include "Loopie/Core/Math.h"
+#include "Loopie/Math/MathTypes.h"
 #include <unordered_map>
 
 namespace Loopie {

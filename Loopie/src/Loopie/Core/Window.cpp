@@ -2,6 +2,7 @@
 
 #include "Loopie/Core/Assert.h"
 #include "Loopie/Core/Log.h"
+#include "Loopie/Core/Time.h"
 #include "Loopie/Render/Renderer.h"
 #include "Loopie/Core/InputEventManager.h"
 
@@ -66,19 +67,6 @@ namespace Loopie {
 		}
 
 		Renderer::Shutdown();
-	}
-
-	void Window::StartFrame() {
-		Uint64 now = SDL_GetPerformanceCounter();
-		if (m_lastFrameTime != 0)
-		{
-			m_deltaTimeMs = (float)((now - m_lastFrameTime) * 1000.0 / (double)SDL_GetPerformanceFrequency());
-		}
-		else
-		{
-			m_deltaTimeMs = 0.0f;
-		}
-		m_lastFrameTime = now;
 	}
 
 	// 24/09 Technically more of a swapbuffer rather than an update right now
@@ -191,14 +179,7 @@ namespace Loopie {
 	{
 		SDL_SetWindowPosition(m_window, x, y); // returns bool
 	}
-	float Window::GetDeltaTimeMs()
-	{
-		return m_deltaTimeMs;
-	}
-	float Window::GetDeltaTime()
-	{
-		return m_deltaTimeMs/1000.0f;
-	}
+
 	void Window::LimitFramerate()
 	{
 		if (m_vsyncState || m_targetFramerate <= 0)
@@ -206,7 +187,7 @@ namespace Loopie {
 		Uint64 now = SDL_GetPerformanceCounter();
 
 		double freq = (double)(SDL_GetPerformanceFrequency());
-		double frameTimeMs = (now - m_lastFrameTime) * 1000.0 / freq;
+		double frameTimeMs = (now - Time::GetLastFrameTime()) * 1000.0 / freq;
 		double targetFrameMs = 1000.0 / m_targetFramerate;
 
 		if (frameTimeMs < targetFrameMs)

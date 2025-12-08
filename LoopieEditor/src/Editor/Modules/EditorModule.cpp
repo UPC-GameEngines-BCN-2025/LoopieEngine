@@ -7,17 +7,18 @@
 #include "Loopie/Render/Renderer.h"
 #include "Loopie/Render/Gizmo.h"
 
-#include "Loopie/Core/Math.h"
+#include "Loopie/Math/MathTypes.h"
 
 #include "Loopie/Resources/ResourceManager.h"
 #include "Loopie/Importers/TextureImporter.h"
+#include "Loopie/Importers/MaterialImporter.h"
 
 #include "Loopie/Components/MeshRenderer.h"
 #include "Loopie/Components/Transform.h"
+#include "Loopie/Resources/Types/Material.h"
 ///
 
-
-#include <imgui.h>
+#include <glad/glad.h>
 
 namespace Loopie
 {
@@ -26,11 +27,6 @@ namespace Loopie
 		AssetRegistry::Initialize();
 		Application::GetInstance().GetWindow().SetResizable(true);
 
-		std::string defaultTeturePath = "assets/textures/simpleWhiteTexture.png";
-		Metadata& meta = AssetRegistry::GetOrCreateMetadata(defaultTeturePath);
-		TextureImporter::ImportImage(defaultTeturePath, meta);
-		Renderer::SetDefaultTexture(ResourceManager::GetTexture(meta));
-
 		/////SCENE
 		Application::GetInstance().CreateScene(""); /// Maybe default One
 		scene = &Application::GetInstance().GetScene();
@@ -38,6 +34,13 @@ namespace Loopie
 
 		scene->CreateEntity({ 0,0,-10 }, { 1,0,0,0 }, {1,1,1}, nullptr, "MainCamera")->AddComponent<Camera>();
 		scene->CreateEntity({ 0,0,-20 }, { 1,0,0,0 }, {1,1,1}, nullptr, "SecondaryCamera")->AddComponent<Camera>();
+
+		Metadata& metadata = AssetRegistry::GetOrCreateMetadata("assets/materials/outlineMaterial.mat");
+		selectedObjectMaterial = ResourceManager::GetMaterial(metadata);
+		selectedObjectMaterial->SetIfEditable(false);
+		selectedObjectShader = new Shader("assets/shaders/SelectionOutline.shader");
+		selectedObjectMaterial->SetShader(*selectedObjectShader);
+
 		////
 
 		m_assetsExplorer.Init();
@@ -50,25 +53,25 @@ namespace Loopie
 
 		m_hierarchy.SetScene(scene);
 
+		Application::GetInstance().m_notifier.AddObserver(this);
+
 	}
 
 	void EditorModule::OnUnload()
 	{
 		AssetRegistry::Shutdown();
+		Application::GetInstance().m_notifier.RemoveObserver(this);
 	}
 
-	void EditorModule::OnUpdate(float dt)
+	void EditorModule::OnUpdate()
 	{
+
 		Application& app = Application::GetInstance();
 		InputEventManager& inputEvent = app.GetInputEvent();
 
-		if (inputEvent.HasEvent(SDL_EVENT_WINDOW_FOCUS_GAINED)) {
-			AssetRegistry::RefreshAssetRegistry();
-		}
-
-		m_hierarchy.Update(dt, inputEvent);
-		m_assetsExplorer.Update(dt, inputEvent);
-		m_scene.Update(dt, inputEvent);
+		m_hierarchy.Update(inputEvent);
+		m_assetsExplorer.Update(inputEvent);
+		m_scene.Update(inputEvent);
 
 		const std::vector<Camera*>& cameras = Renderer::GetRendererCameras();
 		for (const auto cam : cameras)
@@ -92,7 +95,7 @@ namespace Loopie
 			if (!buffer)
 				continue;
 
-			Renderer::BeginScene(cam->GetViewMatrix(), cam->GetProjectionMatrix());
+			Renderer::BeginScene(cam->GetViewMatrix(), cam->GetProjectionMatrix(), false);
 			Renderer::SetViewport(0, 0, buffer->GetWidth(), buffer->GetWidth());
 			buffer->Bind();
 			RenderWorld(cam);
@@ -105,8 +108,13 @@ namespace Loopie
 
 		/// SceneWindowRender
 		m_scene.StartScene();
-		Renderer::BeginScene(m_scene.GetCamera()->GetViewMatrix(), m_scene.GetCamera()->GetProjectionMatrix());
+		Renderer::BeginScene(m_scene.GetCamera()->GetViewMatrix(), m_scene.GetCamera()->GetProjectionMatrix(), true);
 		RenderWorld(m_scene.GetCamera());
+		if (HierarchyInterface::s_SelectedEntity) {
+			Camera* cam = HierarchyInterface::s_SelectedEntity->GetComponent<Camera>();
+			if (cam)
+				Gizmo::DrawFrustum(cam->GetFrustum());
+		}
 		Renderer::EndScene();
 		m_scene.EndScene();
 
@@ -122,7 +130,6 @@ namespace Loopie
 
 	void EditorModule::OnInterfaceRender()
 	{
-
 		ImGui::DockSpaceOverViewport();
 
 		m_mainMenu.Render();
@@ -135,14 +142,49 @@ namespace Loopie
 	}
 
 	void EditorModule::RenderWorld(Camera* camera)
-	{
+	{	
+		Renderer::EnableStencil();
+		Renderer::EnableDepth();
+		Renderer::Clear();
+		Renderer::SetStencilFunc(Renderer::StencilFunc::ALWAYS, 1, 0xFF);
+		Renderer::SetStencilOp(Renderer::StencilOp::KEEP, Renderer::StencilOp::KEEP, Renderer::StencilOp::REPLACE);
+		Renderer::SetStencilMask(0xFF);
+		//Renderer::DisableStencil();
 		for (auto& [uuid, entity] : scene->GetAllEntities()) {
 			if (!entity->GetIsActive())
 				continue;
 			MeshRenderer* renderer = entity->GetComponent<MeshRenderer>();
 			if (!renderer || !renderer->GetIsActive())
 				continue;
-			Renderer::AddRenderItem(renderer->GetMesh()->GetVAO(), renderer->GetMaterial(), entity->GetTransform());
+
+			if (!camera->GetFrustum().Intersects(renderer->GetWorldAABB()))
+				continue;
+			renderer->Render();
+
+			if (entity == HierarchyInterface::s_SelectedEntity) {
+				Renderer::FlushRenderItem(renderer->GetMesh()->GetVAO(), renderer->GetMaterial(), entity->GetTransform());
+
+				Renderer::SetStencilFunc(Renderer::StencilFunc::NOTEQUAL,1,0xFF);
+				Renderer::SetStencilMask(0x00);
+
+				float outlineScale = 1.05f;
+				glm::vec3 center = renderer->GetWorldAABB().GetCenter();
+
+				glm::mat4 T1 = glm::translate(glm::mat4(1.0f), center);
+				glm::mat4 S = glm::scale(glm::mat4(1.0f), glm::vec3(outlineScale));
+				glm::mat4 T2 = glm::translate(glm::mat4(1.0f), -center);
+				glm::mat4 outlineModel = T1 * S * T2 * entity->GetTransform()->GetLocalToWorldMatrix();
+				Renderer::FlushRenderItem(renderer->GetMesh()->GetVAO(), selectedObjectMaterial, outlineModel);
+
+				Renderer::SetStencilMask(0xFF);
+				Renderer::EnableDepth();
+				Renderer::DisableStencil();
+
+			}
+			else
+			{
+				Renderer::AddRenderItem(renderer->GetMesh()->GetVAO(), renderer->GetMaterial(), entity->GetTransform());
+			}
 		}
 	}
 
@@ -150,5 +192,16 @@ namespace Loopie
 	{
 		m_scene.ChargeModel("assets/models/BakerHouse.fbx");
 		m_scene.ChargeTexture("assets/textures/Baker_house.png");
-	}	
+	}
+
+	void EditorModule::OnNotify(const EngineNotification& type)
+	{
+		if (type == EngineNotification::OnProjectChange) {
+			AssetRegistry::Initialize();
+			Application::GetInstance().GetWindow().SetTitle(Application::GetInstance().m_activeProject.GetProjectName().c_str());
+			m_assetsExplorer.Reload();
+			///LOAD SCENE
+		}
+	}
+
 }

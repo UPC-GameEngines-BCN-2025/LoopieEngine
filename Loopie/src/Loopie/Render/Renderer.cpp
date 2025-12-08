@@ -11,7 +11,6 @@
 
 namespace Loopie {
 
-	std::shared_ptr<Texture> Renderer::s_DefaultTexture = nullptr;
 	std::vector<Renderer::RenderItem> Renderer::s_RenderQueue = std::vector<Renderer::RenderItem>();
 	std::vector<Camera*> Renderer::s_renderCameras = std::vector<Camera*>();
 	std::shared_ptr<UniformBuffer> Renderer::s_matricesUniformBuffer = nullptr;
@@ -48,7 +47,7 @@ namespace Loopie {
 	}
 
 	void Renderer::Clear() {
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 	}
 
 	void Renderer::SetClearColor(const vec4& color) {
@@ -95,6 +94,20 @@ namespace Loopie {
 		s_RenderQueue.emplace_back(RenderItem{ vao, vao->GetIndexBuffer().GetCount(), material, transform});
 	}
 
+	void Renderer::FlushRenderItem(std::shared_ptr<VertexArray> vao, std::shared_ptr<Material> material, const Transform* transform)
+	{
+		FlushRenderItem(vao, material, transform->GetLocalToWorldMatrix());
+	}
+
+	void Renderer::FlushRenderItem(std::shared_ptr<VertexArray> vao, std::shared_ptr<Material> material, const matrix4& modelMatrix)
+	{
+		vao->Bind();
+		material->Bind();
+		SetRenderUniforms(material, modelMatrix);
+		glDrawElements(GL_TRIANGLES, vao->GetIndexBuffer().GetCount(), GL_UNSIGNED_INT, nullptr);
+		vao->Unbind();
+	}
+
 	void Renderer::FlushRenderQueue()
 	{
 		/// SORT By Material
@@ -116,16 +129,38 @@ namespace Loopie {
 
 	void Renderer::SetRenderUniforms(std::shared_ptr<Material> material, const Transform* transform)
 	{
-		material->GetShader().SetUniformMat4("lp_Transform", transform->GetLocalToWorldMatrix());
+		SetRenderUniforms(material, transform->GetLocalToWorldMatrix());
 	}
-
+	void Renderer::SetRenderUniforms(std::shared_ptr<Material> material, const matrix4& modelMatrix)
+	{
+		material->GetShader().SetUniformMat4("lp_Transform", modelMatrix);
+	}
 	void Renderer::EnableDepth()
 	{
 			glEnable(GL_DEPTH_TEST);
 	}
-
 	void Renderer::DisableDepth()
 	{
 			glDisable(GL_DEPTH_TEST);
+	}
+	void Renderer::EnableStencil()
+	{
+		glEnable(GL_STENCIL_TEST);
+	}
+	void Renderer::DisableStencil()
+	{
+		glDisable(GL_STENCIL_TEST);
+	}
+	void Renderer::SetStencilMask(unsigned int mask)
+	{
+		glStencilMask(mask);
+	}
+	void Renderer::SetStencilOp(StencilOp stencil_fail, StencilOp depth_fail, StencilOp pass)
+	{
+		glStencilOp((unsigned int)stencil_fail, (unsigned int)depth_fail, (unsigned int)pass);
+	}
+	void Renderer::SetStencilFunc(StencilFunc cond, int ref, unsigned int mask)
+	{
+		glStencilFunc((unsigned int)cond, ref, mask);
 	}
 }

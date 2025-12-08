@@ -20,6 +20,7 @@ namespace Loopie {
 
         static Metadata* GetMetadata(const UUID& uuid);
         static Metadata* GetMetadata(const std::string& sourcePath);
+        static const std::string GetSourcePath(const UUID& uuid);
 
         static bool UpdateMetadata(const Metadata& metadata, const std::filesystem::path& assetPath);
 
@@ -29,6 +30,7 @@ namespace Loopie {
         static void ScanEngineDirectory();
         static void ScanAssetDirectory();
         static void CleanOrphanedMetadata();
+        static void CleanOrphanedLibraryFiles();
         static void Register(const std::string& path,const Metadata& metadata);
 
     private:

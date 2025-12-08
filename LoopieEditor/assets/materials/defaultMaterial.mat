@@ -1,0 +1,29 @@
+{
+	"shader" : "",
+	"properties" : {
+		"u_Albedo" : {
+			"type" : "Sampler2D",
+			"value" : ""
+		},
+		"u_Color" : {
+			"type" : "Vec4",
+			"value" : "1,1,1,1"
+		},
+		"u_UseChecker" : {
+			"type" : "Bool",
+			"value" : "False"
+		},
+		"u_CheckerScale" : {
+			"type" : "Float",
+			"value" : "8"
+		},
+		"u_CheckerColor1" : {
+			"type" : "Vec4",
+			"value" : "1,1,1,1"
+		},
+		"u_CheckerColor2" : {
+			"type" : "Vec4",
+			"value" : "0,0,0,1"
+		}
+	}
+}

@@ -1,13 +1,11 @@
 #pragma once
 
 #include "Loopie/Core/UUID.h"
-#include "Loopie/Core/Identificable.h"
-#include "Loopie/Components/Component.h"
+#include "Loopie/Core/IIdentificable.h"
 
 #include <string>
 #include <vector>
 #include <memory>
-#include <cstddef>
 
 namespace Loopie {
 	class Component;
@@ -95,6 +93,7 @@ namespace Loopie {
 		Transform* GetTransform() const;
 
 		void SetUUID(const std::string uuid);
+		void SetUUID(UUID uuid);
 		void SetName(const std::string& name);
 		void SetIsActive(bool active);
 		// If a parent is set up, then it means this is its child and will update it accordingly

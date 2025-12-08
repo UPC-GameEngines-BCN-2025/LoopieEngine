@@ -72,6 +72,70 @@ namespace Loopie {
 
 	}
 
+	void Gizmo::DrawCube(const vec3& p0, const vec3& p1, const vec4& color)
+	{
+		vec3 minP = { std::min(p0.x, p1.x), std::min(p0.y, p1.y), std::min(p0.z, p1.z) };
+		vec3 maxP = { std::max(p0.x, p1.x), std::max(p0.y, p1.y), std::max(p0.z, p1.z) };
+
+		vec3 v000 = { minP.x, minP.y, minP.z };
+		vec3 v001 = { minP.x, minP.y, maxP.z };
+		vec3 v010 = { minP.x, maxP.y, minP.z };
+		vec3 v011 = { minP.x, maxP.y, maxP.z };
+
+		vec3 v100 = { maxP.x, minP.y, minP.z };
+		vec3 v101 = { maxP.x, minP.y, maxP.z };
+		vec3 v110 = { maxP.x, maxP.y, minP.z };
+		vec3 v111 = { maxP.x, maxP.y, maxP.z };
+
+		DrawLine(v000, v100, color);
+		DrawLine(v100, v101, color);
+		DrawLine(v101, v001, color);
+		DrawLine(v001, v000, color);
+
+		DrawLine(v010, v110, color);
+		DrawLine(v110, v111, color);
+		DrawLine(v111, v011, color);
+		DrawLine(v011, v010, color);
+
+		DrawLine(v000, v010, color);
+		DrawLine(v100, v110, color);
+		DrawLine(v101, v111, color);
+		DrawLine(v001, v011, color);
+	}
+
+	void Gizmo::DrawCube(const std::array<vec3, 8>& corners, const vec4& color)
+	{
+		Gizmo::DrawLine(corners[0], corners[1], color);
+		Gizmo::DrawLine(corners[1], corners[2], color);
+		Gizmo::DrawLine(corners[2], corners[3], color);
+		Gizmo::DrawLine(corners[3], corners[0], color);
+
+		Gizmo::DrawLine(corners[4], corners[5], color);
+		Gizmo::DrawLine(corners[5], corners[6], color);
+		Gizmo::DrawLine(corners[6], corners[7], color);
+		Gizmo::DrawLine(corners[7], corners[4], color);
+
+		Gizmo::DrawLine(corners[0], corners[4], color);
+		Gizmo::DrawLine(corners[1], corners[5], color);
+		Gizmo::DrawLine(corners[2], corners[6], color);
+		Gizmo::DrawLine(corners[3], corners[7], color);
+	}
+
+	void Gizmo::DrawCube(const OBB& obb, const vec4& color)
+	{
+		DrawCube(obb.GetCorners(), color);
+	}
+
+	void Gizmo::DrawCube(const AABB& aabb, const vec4& color)
+	{
+		DrawCube(aabb.MinPoint, aabb.MaxPoint, color);
+	}
+
+	void Gizmo::DrawFrustum(const Frustum& frustum, const vec4& color)
+	{
+		DrawCube(frustum.GetCorners(), color);
+	}
+
 	void Gizmo::SetGridSize(int size)
 	{
 		s_Data.GridHalfSize = size / 2;

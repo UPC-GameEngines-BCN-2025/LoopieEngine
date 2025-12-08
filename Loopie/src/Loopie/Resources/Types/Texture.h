@@ -1,6 +1,6 @@
 #pragma once
 #include "Loopie/Resources/Resource.h"
-#include "Loopie/Core/Math.h"
+#include "Loopie/Math/MathTypes.h"
 
 #include "Loopie/Render/TextureBuffer.h"
 
@@ -18,8 +18,9 @@ namespace Loopie {
 		Texture(const UUID& id);
 		~Texture() = default;
 
-		void LoadFromFile(const std::string path) override;
-		void Reload() override;
+		static std::shared_ptr<Texture> GetDefault();
+
+		bool Load() override;
 
 		ivec2 GetSize() { return ivec2(m_width, m_height); }
 
@@ -31,5 +32,7 @@ namespace Loopie {
 		int m_channels = 0;
 
 		std::shared_ptr<TextureBuffer> m_tb;
+
+		static std::shared_ptr<Texture> s_Texture;
 	};
 }

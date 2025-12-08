@@ -1,6 +1,7 @@
 #include "EditorMenuInterface.h"
 
 #include "Loopie/Core/Application.h"
+#include "Loopie/Core/Time.h"
 #include "Loopie/Core/Window.h"
 #include "Loopie/Files/FileDialog.h"
 
@@ -44,10 +45,15 @@ namespace Loopie {
 					Application::GetInstance().GetScene().SaveScene();
 				}
 
-				if (ImGui::MenuItem("Save as... [WIP]"))
+				//if (ImGui::MenuItem("Save as... [WIP]"))
+				//{
+				//	// TODO: save all scenes and config to a specific file
+				//	Application::GetInstance().GetScene().SaveScene();
+				//}
+
+				if (ImGui::MenuItem("Reload Scene... [WIP][TEMP]"))
 				{
-					// TODO: save all scenes and config to a specific file
-					Application::GetInstance().GetScene().SaveScene();
+					Application::GetInstance().GetScene().ReadAndLoadSceneFile("TESTSavedScene.json");
 				}
 
 				if (ImGui::MenuItem("Exit"))
@@ -196,7 +202,7 @@ namespace Loopie {
 			}
 
 
-			float ms = window.GetDeltaTimeMs();
+			float ms = Time::GetDeltaTimeMs();
 			float fps = ms > 0.0f ? 1000.0f / ms : 0.0f;
 
 			if (m_fpsLog.size() >= LOG_SIZE)

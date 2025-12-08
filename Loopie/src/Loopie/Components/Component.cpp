@@ -30,4 +30,14 @@ namespace Loopie {
 	{
 		m_uuid = UUID(uuid);
 	}
+
+	JsonNode Component::Serialize(JsonNode& parent) const // TEMP DELETE THIS
+	{
+		return JsonNode();
+	}
+
+	void Component::Deserialize(const JsonNode& data)// TEMP DELETE THIS
+	{
+		return;
+	}
 }

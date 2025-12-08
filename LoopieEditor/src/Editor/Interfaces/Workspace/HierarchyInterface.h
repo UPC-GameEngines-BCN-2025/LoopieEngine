@@ -8,7 +8,7 @@ namespace Loopie {
 		HierarchyInterface();
 		~HierarchyInterface() = default;
 		void Init() override {}
-		void Update(float dt, const InputEventManager& inputEvent) override;
+		void Update(const InputEventManager& inputEvent) override;
 		void Render() override;
 
 		void SetScene(Scene* scene);
@@ -20,6 +20,9 @@ namespace Loopie {
 
 		void DrawContextMenu(const std::shared_ptr<Entity>& entity);
 		void HotKeysSelectedEntiy(const InputEventManager& inputEvent);
+
+		void Drag(const std::shared_ptr<Entity>& entity);
+		void Drop(const std::shared_ptr<Entity>& entity);
 
 		std::shared_ptr<Entity> CreatePrimitiveModel(const std::string& modelPath, const std::string& name, const std::shared_ptr<Entity>& parent);
 
